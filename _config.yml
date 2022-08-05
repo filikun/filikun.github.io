@@ -13,5 +13,3 @@ just_the_docs:
   collections:
     lights:
       name: Lights
-      nav_exclude: false
-      search_exclude: false
