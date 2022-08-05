@@ -1,3 +1,8 @@
+title: Filikun
+description: My Home Assistant documentation
+baseurl: "/filikun.github.io"
+url: "https://filikun.github.io/"
+
 remote_theme: just-the-docs/just-the-docs
 # Color scheme supports "light" (default) and "dark"
 color_scheme: dark
