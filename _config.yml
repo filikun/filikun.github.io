@@ -1,3 +1,17 @@
 remote_theme: just-the-docs/just-the-docs
 # Color scheme supports "light" (default) and "dark"
 color_scheme: dark
+
+# Define Jekyll collections
+collections:
+  lights:
+    permalink: "/:collection/:path/"
+    output: true
+
+just_the_docs:
+# Define which collections are used in just-the-docs
+  collections:
+    lights:
+      name: Lights
+      nav_exclude: false
+      search_exclude: false
