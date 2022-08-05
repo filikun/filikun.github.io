@@ -3,5 +3,5 @@ remote_theme: just-the-docs/just-the-docs
 color_scheme: dark
 title: Filikun
 description: My Home Assistant documentation
-baseurl: "/filikun.github.io"
-url: "https://filikun.github.io/"
+#baseurl: "/filikun.github.io"
+#url: "https://filikun.github.io/"
