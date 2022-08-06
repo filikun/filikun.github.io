@@ -88,8 +88,7 @@ action:
         sequence:
           - delay:
               minutes: >-
-                {{ states('input_number.hallway_motion_activated_lights_timer')
-                | int }}
+                {{ states('input_number.hallway_motion_activated_lights_timer')| int }}
           - condition: state
             entity_id: input_boolean.hallway_motion_activated_lights
             state: "on"
@@ -103,3 +102,7 @@ action:
 mode: restart
 ```
 </details>
+
+```yaml
+{{ states('input_number.hallway_motion_activated_lights_timer')| int }}
+```
