@@ -1,18 +1,52 @@
 ---
 layout: default
-title: Gatulampa
+title: Motion controlled lights
 parent: Lights
 nav_order: 3
 ---
 
 
-# Gatulampa
+# Motion controlled lights
+This automation aims at turning on the lights if the light target is below the set level by the `input number` and our `input_boolean` is not off. It then turns off when motion is cleared and after our delay caused by a `input number`.
+
+### Requirements 
+- Smart light bulbs 
+- Motion sensor (with motion & lux sensor)
+- Input number to control brightness target
+- input number to control delay after motion is off
+- Input boolean for manual control
 
 
-
-# A collapsible section with markdown
 <details>
-  <summary>Click to expand!</summary>
+  <summary>Timer</summary>
+Type: input_number
+Name: hallway motion activated lights timer
+Minimum value: 0
+Maximum value: 60
+Display mode: Input field
+Step size: 1
+Unit of measurement: min
+</details>
+
+<details>
+  <summary>Light target</summary>
+Type: input_number
+Name: Bathroom motion activated lights brightness
+Minimum value: 0
+Maximum value: 300
+Display mode: Input field
+Step size: 50
+Unit of measurement: lx
+</details>
+
+<details>
+  <summary>Manual control</summary>
+Type: input_boolean
+Name: Hallway motion activated lights
+</details>
+
+<details>
+  <summary>Automation code</summary>
   
 <div class="code-example" markdown="1">
 ```yaml
