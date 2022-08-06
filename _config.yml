@@ -4,14 +4,6 @@ color_scheme: dark
 title: Filikun
 description: My Home Assistant documentation
 
-permalink: /:collection/:path
-
-collections:
-  lights:
-    output: true
-
-  headlights:
-    output: true
 
 #baseurl: "/filikun.github.io"
 #url: "https://filikun.github.io/"
