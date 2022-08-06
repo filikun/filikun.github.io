@@ -1,9 +1,8 @@
 ---
 layout: default
 title: Lampa
+parent: Lights
 nav_order: 2
-has_children: false
-has_toc: false
 ---
 
 # Lampa
