@@ -10,5 +10,8 @@ collections:
   lights:
     output: true
 
+  headlights:
+    output: true
+
 #baseurl: "/filikun.github.io"
 #url: "https://filikun.github.io/"
