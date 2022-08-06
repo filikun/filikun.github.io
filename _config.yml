@@ -4,6 +4,14 @@ color_scheme: dark
 title: Filikun
 description: My Home Assistant documentation
 
+# Enable or disable heading anchors
+heading_anchors: true
 
-#baseurl: "/filikun.github.io"
-#url: "https://filikun.github.io/"
+# Back to top link
+back_to_top: true
+back_to_top_text: "Back to top"
+
+kramdown:
+  syntax_highlighter_opts:
+    block:
+      line_numbers: false
