@@ -19,6 +19,8 @@ This automation aims at turning on the lights if the light target is below the s
 
 <details>
   <summary>Timer</summary>
+<div class="code-example" markdown="1">
+```yaml	  
 Type: input_number
 Name: hallway motion activated lights timer
 Minimum value: 0
@@ -26,10 +28,13 @@ Maximum value: 60
 Display mode: Input field
 Step size: 1
 Unit of measurement: min
+```
 </details>
 
 <details>
   <summary>Light target</summary>
+<div class="code-example" markdown="1">
+```yaml	
 Type: input_number
 Name: Bathroom motion activated lights brightness
 Minimum value: 0
@@ -37,17 +42,22 @@ Maximum value: 300
 Display mode: Input field
 Step size: 50
 Unit of measurement: lx
+```
+</div>
 </details>
 
 <details>
   <summary>Manual control</summary>
+<div class="code-example" markdown="1">
+```yaml	
 Type: input_boolean
 Name: Hallway motion activated lights
+```
+</div>
 </details>
 
 <details>
   <summary>Automation code</summary>
-  
 <div class="code-example" markdown="1">
 ```yaml
 alias: 💡 Belysning hall rörelse
