@@ -1,7 +1,9 @@
+---
 layout: default
 title: Gatulampa
-nav_order: 2
+nav_order: 1
 has_children: false
 has_toc: false
+---
 
-## Gatulampa
+# Gatulampa
