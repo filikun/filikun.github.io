@@ -5,6 +5,8 @@ parent: Lights
 nav_order: 3
 ---
 
+Automation
+{: .label .label-green }
 
 # Motion controlled lights
 This automation aims at turning on the lights if the light target is below the set level by the `input number` and our `input_boolean` is not off. It then turns off when motion is cleared and after our delay caused by a `input number`.
