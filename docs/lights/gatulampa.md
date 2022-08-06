@@ -9,13 +9,6 @@ nav_order: 3
 # Motion controlled lights
 This automation aims at turning on the lights if the light target is below the set level by the `input number` and our `input_boolean` is not off. It then turns off when motion is cleared and after our delay caused by a `input number`.
 
-### Requirements 
-- Smart light bulbs 
-- Motion sensor (with motion & lux sensor)
-- Input number to control brightness target
-- input number to control delay after motion is off
-- Input boolean for manual control
-
 
 <details open markdown="block">
   <summary>Timer</summary>
