@@ -17,7 +17,7 @@ This automation aims at turning on the lights if the light target is below the s
 - Input boolean for manual control
 
 
-<details>
+<details open markdown="block">
   <summary>Timer</summary>
 <div class="code-example" markdown="1">
 ```yaml	  
@@ -32,7 +32,7 @@ Unit of measurement: min
 </div>
 </details>
 
-<details>
+<details open markdown="block">
   <summary>Light target</summary>
 <div class="code-example" markdown="1">
 ```yaml	
@@ -47,7 +47,7 @@ Unit of measurement: lx
 </div>
 </details>
 
-<details>
+<details open markdown="block">
   <summary>Manual control</summary>
 <div class="code-example" markdown="1">
 ```yaml	
@@ -57,7 +57,7 @@ Name: Hallway motion activated lights
 </div>
 </details>
 
-<details>
+<details open markdown="block">
   <summary>Automation code</summary>
 <div class="code-example" markdown="1">
 ```yaml
