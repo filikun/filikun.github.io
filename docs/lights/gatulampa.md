@@ -29,6 +29,7 @@ Display mode: Input field
 Step size: 1
 Unit of measurement: min
 ```
+</div>
 </details>
 
 <details>
