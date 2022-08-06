@@ -9,6 +9,11 @@ nav_order: 3
 # Gatulampa
 
 
+
+# A collapsible section with markdown
+<details>
+  <summary>Click to expand!</summary>
+  
 <div class="code-example" markdown="1">
 ```yaml
 alias: 💡 Belysning hall rörelse
@@ -67,3 +72,4 @@ action:
 mode: restart
 ```
 </div>
+</details>
