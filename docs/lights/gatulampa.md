@@ -94,7 +94,7 @@ action:
             id: "off"
         sequence:
           - delay:
-              minutes: >-
+              minutes: |
                 {{ states('input_number.hallway_motion_activated_lights_timer')
                 | int }}
           - condition: state
