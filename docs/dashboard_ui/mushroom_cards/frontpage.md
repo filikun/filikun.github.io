@@ -3,7 +3,7 @@ layout: default
 title: 📄 Frontpage
 parent: 🍄 Mushroom cards
 grand_parent: 🦄 Dashboard UI
-nav_order: 22
+nav_order: 1
 ---
 
 # Front page
@@ -13,7 +13,7 @@ Will greet the user and change depending on time of day.
 
 ![alt text](\assets\images\frontpage\greeter.png)
 
-<details>
+<details open markdown="block">
   <summary>Code</summary>
 {% raw %}
 ```yml
@@ -25,7 +25,6 @@ variables:
     [[[
       const d = new Date();
       var hour = d.getHours();
-
       if (hour <= '6'){
         var greet = 'God natt';
         var emoji = '😴';
