@@ -1,7 +1,7 @@
 ---
 layout: default
-title: Media controlled lights
-parent: Lights
+title: 📺 Media controlled lights
+parent: 💡 Lights
 nav_order: 5
 ---
 

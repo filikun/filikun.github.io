@@ -1,7 +1,7 @@
 ---
 layout: default
-title: Motion controlled lights
-parent: Lights
+title: 🏃 Motion controlled lights
+parent: 💡 Lights
 nav_order: 3
 ---
 

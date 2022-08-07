@@ -1,7 +1,7 @@
 ---
 layout: default
-title: Computer controlled lights
-parent: Lights
+title: 💻 Computer controlled lights
+parent: 💡 Lights
 nav_order: 6
 ---
 

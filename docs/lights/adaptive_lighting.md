@@ -1,7 +1,7 @@
 ---
 layout: default
-title: Adaptive Lighting & night lights
-parent: Lights
+title: 🔆 Adaptive Lighting & night lights
+parent: 💡 Lights
 nav_order: 4
 ---
 
