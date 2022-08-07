@@ -105,6 +105,9 @@ mode: restart
 ```
 </details>
 
+{% raw %}
 ```yaml
 {{ states('input_number.hallway_motion_activated_lights_timer')| int }}
 ```
+{% endraw %}
+
