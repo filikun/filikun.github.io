@@ -1,8 +1,8 @@
 ---
 layout: default
-title: 📺 Media controlled lights
+title: 📺 TV lights
 parent: 💡 Lights
-nav_order: 5
+nav_order: 22
 ---
 
 Automation

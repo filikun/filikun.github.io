@@ -1,8 +1,8 @@
 ---
 layout: default
-title: 💻 Computer controlled lights
+title: 💻 Computer lights
 parent: 💡 Lights
-nav_order: 6
+nav_order: 24
 ---
 
 Automation

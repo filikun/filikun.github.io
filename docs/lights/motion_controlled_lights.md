@@ -1,8 +1,8 @@
 ---
 layout: default
-title: 🏃 Motion controlled lights
+title: 🏃 Motion lights
 parent: 💡 Lights
-nav_order: 3
+nav_order: 23
 ---
 
 Automation

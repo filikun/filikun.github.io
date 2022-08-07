@@ -1,8 +1,8 @@
 ---
 layout: default
-title: 🔆 Adaptive Lighting & night lights
+title: 🔆 Adaptive Lighting
 parent: 💡 Lights
-nav_order: 4
+nav_order: 21
 ---
 
 custom integration
