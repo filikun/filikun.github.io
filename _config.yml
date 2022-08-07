@@ -7,6 +7,9 @@ description: My Home Assistant documentation
 # Enable or disable heading anchors
 heading_anchors: true
 
+# Set a path/url to a logo that will be displayed instead of the title
+logo: "/assets/images/filikun_photo.jpg"
+
 # Sort order for navigation links
 # nav_sort: case_insensitive # default, equivalent to nil
 nav_sort: case_sensitive # Capital letters sorted before lowercase
