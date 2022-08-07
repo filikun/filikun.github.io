@@ -1,14 +1,11 @@
 remote_theme: just-the-docs/just-the-docs
 # Color scheme supports "light" (default) and "dark"
 color_scheme: nil
-title: Filikun
+title: Filikun's Home Assistant docs
 description: My Home Assistant documentation
 
 # Enable or disable heading anchors
 heading_anchors: true
-
-# Set a path/url to a logo that will be displayed instead of the title
-logo: "/assets/images/filikun_photo.jpg"
 
 # Sort order for navigation links
 # nav_sort: case_insensitive # default, equivalent to nil
