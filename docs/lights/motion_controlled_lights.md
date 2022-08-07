@@ -48,6 +48,7 @@ Name: Hallway motion activated lights
 
 <details open markdown="block">
   <summary>Automation code</summary>
+{% raw %}
 ```yml
 alias: 💡 Belysning hall rörelse
 description: ""
@@ -103,11 +104,6 @@ action:
     default: []
 mode: restart
 ```
-</details>
-
-{% raw %}
-```yaml
-{{ states('input_number.hallway_motion_activated_lights_timer')| int }}
-```
 {% endraw %}
+</details>
 
