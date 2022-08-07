@@ -2,7 +2,7 @@
 layout: default
 title: 🏃 Motion lights
 parent: 💡 Lights
-nav_order: 23
+nav_order: 32
 ---
 
 Automation

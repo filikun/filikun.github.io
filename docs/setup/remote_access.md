@@ -2,7 +2,7 @@
 layout: default
 title: 🔗 Remote access
 parent: ⚙️ Setup
-nav_order: 21
+nav_order: 41
 ---
 # Remote access
 

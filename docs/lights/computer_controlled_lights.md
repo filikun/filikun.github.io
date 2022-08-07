@@ -2,7 +2,7 @@
 layout: default
 title: 💻 Computer lights
 parent: 💡 Lights
-nav_order: 24
+nav_order: 34
 ---
 
 Automation

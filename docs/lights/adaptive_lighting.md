@@ -2,7 +2,7 @@
 layout: default
 title: 🔆 Adaptive Lighting
 parent: 💡 Lights
-nav_order: 21
+nav_order: 31
 ---
 
 custom integration

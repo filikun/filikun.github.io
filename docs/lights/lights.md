@@ -1,7 +1,7 @@
 ---
 layout: default
 title: 💡 Lights
-nav_order: 20
+nav_order: 30
 has_children: true
 has_toc: true
 ---

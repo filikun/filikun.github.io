@@ -2,7 +2,7 @@
 layout: default
 title: 📺 TV lights
 parent: 💡 Lights
-nav_order: 22
+nav_order: 33
 ---
 
 Automation
