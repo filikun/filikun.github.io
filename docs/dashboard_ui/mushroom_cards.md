@@ -1,7 +1,7 @@
 ---
 layout: default
 title: 🍄 Mushroom cards
-parent: Dashboard UI
+parent: 🦄 Dashboard UI
 nav_order: 21
 has_children: true
 has_toc: true
