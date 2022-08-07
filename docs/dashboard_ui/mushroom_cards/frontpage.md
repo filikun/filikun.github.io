@@ -2,6 +2,7 @@
 layout: default
 title: 📄 Frontpage
 parent: 🍄 Mushroom cards
+grand_parent: 🦄 Dashboard UI
 nav_order: 22
 ---
 
