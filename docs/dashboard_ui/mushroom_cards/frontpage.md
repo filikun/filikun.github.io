@@ -11,7 +11,7 @@ nav_order: 1
 ## Greeter
 Will greet the user and change depending on time of day.
 
-![alt text](\assets\images\frontpage\greeter.png)
+![greeter](\assets\images\frontpage\greeter.png)
 
 <details open markdown="block">
   <summary>Code</summary>
