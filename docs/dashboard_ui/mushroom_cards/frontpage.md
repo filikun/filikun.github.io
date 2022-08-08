@@ -13,7 +13,7 @@ Will greet the user and change depending on time of day.
 
 ![greeter](\assets\images\frontpage\greeter.png)
 
-<details open markdown="block">
+<details markdown="block">
   <summary>Code</summary>
 {% raw %}
 ```yml
@@ -49,6 +49,36 @@ variables:
       }
       return greet + ' ' + user.name + '!' + ' ' + emoji;
     ]]]
+```
+{% endraw %}
+</details>
+
+## Chips
+Will weather and indoor temperature and humidity average.
+
+![greeter](\assets\images\frontpage\chips_climate.png)
+
+<details markdown="block">
+  <summary>Code</summary>
+{% raw %}
+```yml
+type: custom:mushroom-chips-card
+chips:
+  - type: weather
+    entity: weather.smhi_hemma
+    show_conditions: true
+    show_temperature: true
+    tap_action:
+      action: navigate
+      navigation_path: /lovelace/statistics
+  - type: template
+    content: >-
+      🌡️ {{ states('sensor.temperature_indoor_average')| round(0, 0)  }}°C  •💧
+      {{ states('sensor.humidity_indoor_average')| round(0, 0)  }}%
+    tap_action:
+      action: navigate
+      navigation_path: /lovelace/statistics
+alignment: center
 ```
 {% endraw %}
 </details>
