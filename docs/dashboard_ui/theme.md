@@ -10,7 +10,10 @@ has_toc: true
 # Theme
 Taking heavy inspiration of iOS dark mode this theme is split into one mobile and one desktop version. The big difference is the menu bar that is added on the mobile version.
 
-<img src="\assets\images\theme\theme.png" height="100">
+<details>
+  <summary>Picture</summary>
+<img src="\assets\images\theme\theme.png">
+</details>  
 
 ## Mobile theme
 
