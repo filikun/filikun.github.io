@@ -14,7 +14,7 @@ Taking heavy inspiration of iOS dark mode this theme is split into one mobile an
 ## Mobile theme
 
 <details>
-  <summary>Picture</summary>
+  <summary>Image</summary>
 <img src="\assets\images\theme\theme.png">
 </details>
 
