@@ -588,3 +588,43 @@ card:
 ```
 {% endraw %}
 </details>
+
+
+<table>
+  <tr>
+    <td width="33%" valign="bottom">
+<img alt="Greeter" src="\assets\images\frontpage\greeter.png"><br/>
+Greeter</td>
+    <td width="33%" valign="bottom">
+<img width="50%" alt="Climate chip" src="\assets\images\frontpage\chip_climate.png"/><br/>
+Climate chip</td>
+    <td width="33%" valign="bottom">
+<img alt="Presence" src="\assets\images\frontpage\presence.png"/><br/>
+Presence</td>
+  </tr>
+  <tr>
+    <td width="33%" valign="bottom">
+<img alt="Presence popup" src="\assets\images\frontpage\presence_popup.png"/><br/>
+Presence popup</td>
+    <td width="33%" valign="bottom">
+<img alt="Conditional smoke detector" src="\assets\images\frontpage\conditional_smoke_detector.png"/><br/>
+Conditional smoke detector</td>
+    <td width="33%" valign="bottom"><img alt="Conditional thunder" src="\assets\images\frontpage\conditional_thunder.png"/><br/>
+Conditional thunder</td>
+  </tr>
+  <tr>
+    <td width="33%" valign="bottom">
+<img alt="Conditional door window" src="\assets\images\frontpage\conditional_door_window.png"/><br/>
+Conditional door window</td>
+    <td width="33%" valign="bottom">
+<img alt="Conditional Away" src="\assets\images\frontpage\conditional_away.png"/><br/>
+Conditional Away</td>
+    <td width="33%" valign="bottom"><img alt="Conditional night mode" src="\assets\images\frontpage\conditional_night_mode.png"/><br/>
+Conditional night mode</td>
+  </tr>
+  <tr>
+    <td width="33%" valign="bottom">
+<img alt="Conditional guest mode" src="\assets\images\frontpage\conditional_guest_mode.png"/><br/>
+Conditional guest mode</td>
+  </tr>      
+</table>
