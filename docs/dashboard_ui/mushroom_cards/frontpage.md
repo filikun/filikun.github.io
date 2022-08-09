@@ -613,7 +613,7 @@ These cards give some climate details about each room (incl. oudoor). The round 
 
 <details markdown="block">
   <summary>Image</summary>
-![greeter](\assets\images\frontpage\rooms.png)
+![greeter](\assets\images\frontpage\room.png)
 </details>
 <details markdown="block">
   <summary>Code</summary>
