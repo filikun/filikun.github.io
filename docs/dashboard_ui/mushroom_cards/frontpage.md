@@ -278,15 +278,14 @@ tap_action:
 ## Conditional cards
 Cards that are shown when a specific condition is met.
 
-
-#### Smoke detector
+### Smoke detector
 Red alert that a smoke detector is on. Will highlight where and what it has detected (smoke/heat). 
 <details markdown="block">
   <summary>Image</summary>
 ![greeter](\assets\images\frontpage\conditional_smoke_detector.png)
 </details>
 <details markdown="block">
-  <summary>Smoke detector</summary>
+  <summary>Code</summary>
 {% raw %}
 
 ```yml
@@ -334,7 +333,7 @@ cards:
 {% endraw %}
 </details>
 
-#### Thunder
+### Thunder
 Will show if lightning was detected close by.
 
 <details markdown="block">
@@ -342,7 +341,7 @@ Will show if lightning was detected close by.
 ![greeter](\assets\images\frontpage\conditional_thunder.png)
 </details>
 <details markdown="block">
-  <summary>Thunder</summary>
+  <summary>Code</summary>
 {% raw %}
 
 ```yml
@@ -368,7 +367,7 @@ card:
 {% endraw %}
 </details>
 
-#### Door or window open
+### Door or window open
 Will show what door/window is open in Swedish. 
 
 <details markdown="block">
@@ -376,7 +375,7 @@ Will show what door/window is open in Swedish.
 ![greeter](\assets\images\frontpage\conditional_door_window.png)
 </details>
 <details markdown="block">
-  <summary>Door or window open</summary>
+  <summary>Code</summary>
 {% raw %}
 
 ```yml
@@ -425,7 +424,7 @@ card:
 {% endraw %}
 </details>
 
-#### Away
+### Away
 Shows useful house information on the frontpage when neither of us is home. 
 
 <details markdown="block">
@@ -433,7 +432,7 @@ Shows useful house information on the frontpage when neither of us is home.
 ![greeter](\assets\images\frontpage\conditional_away.png)
 </details>
 <details markdown="block">
-  <summary>Away</summary>
+  <summary>Code</summary>
 {% raw %}
 
 ```yml
@@ -544,7 +543,7 @@ card:
 {% endraw %}
 </details>
 
-#### Night mode
+### Night mode
 Shows up between 20:00 and 08:00 (or if Night mode is on)
 
 <details markdown="block">
@@ -552,7 +551,7 @@ Shows up between 20:00 and 08:00 (or if Night mode is on)
 ![greeter](\assets\images\frontpage\conditional_night_mode.png)
 </details>
 <details markdown="block">
-  <summary>Night mode</summary>
+  <summary>Code</summary>
 {% raw %}
 
 ```yml
@@ -574,7 +573,7 @@ states:
 {% endraw %}
 </details>
 
-#### Guest mode
+### Guest mode
 Will only be visible when a guest is connected to our wifi.
 
 <details markdown="block">
@@ -582,7 +581,7 @@ Will only be visible when a guest is connected to our wifi.
 ![greeter](\assets\images\frontpage\conditional_guest_mode.png)
 </details>
 <details markdown="block">
-  <summary>Guest mode</summary>
+  <summary>Code</summary>
 {% raw %}
 
 ```yml
@@ -604,5 +603,902 @@ card:
 
 
 ```
+{% endraw %}
+</details>
+
+
+## Room cards
+These cards give some climate details about each room (incl. oudoor). The round area around the icon will light up if there is lights on and also change depending on light color temperature. The small badges over the icons will show up if motion sensor lights is disabled or if night mode is on for a specific room. 
+
+<details markdown="block">
+  <summary>Image</summary>
+![greeter](\assets\images\frontpage\rooms.png)
+</details>
+<details markdown="block">
+  <summary>Code</summary>
+{% raw %}
+
+```yml
+type: horizontal-stack
+cards:
+  - type: custom:mushroom-template-card
+    primary: Badrum
+    icon: mdi:shower-head
+    layout: horizontal
+    entity: light.bathroom
+    icon_color: |2-
+        {%- if is_state(entity, 'on') %} 
+        {{ '#%02x%02x%02x' % state_attr(entity, 'rgb_color') }}
+        {%- else %}
+        none
+        {% endif %}
+    multiline_secondary: false
+    secondary: >-
+      {{ states('sensor.multi_sensor_bathroom_temperature') | round(0, 0) }}°C
+      • 
+      {{ states('sensor.multi_sensor_bathroom_humidity') | round(0, 0) }}%
+    tap_action:
+      action: navigate
+      navigation_path: /lovelace/bathroom
+    hold_action:
+      action: none
+    double_tap_action:
+      action: none
+    badge_icon: >-
+      {%- if states('switch.adaptive_lighting_sleep_mode_bathroom') == 'on' %} 
+      mdi:moon-waning-crescent
+      {%- elif states('input_boolean.bathroom_motion_activated_lights') == 'off'
+      %}
+      mdi:motion-sensor-off
+      {%- else %}
+      {% endif %}
+    badge_color: >-
+      {%- if states('switch.adaptive_lighting_sleep_mode_bathroom') == 'on' %} 
+      purple
+      {%- elif states('input_boolean.bathroom_motion_activated_lights') ==
+      'off'  %}
+      pink
+      {%- else %}
+      {% endif %}
+  - type: custom:mushroom-template-card
+    primary: Hall
+    icon: mdi:shoe-formal
+    layout: horizontal
+    entity: light.hallway
+    icon_color: |2-
+        {%- if is_state(entity, 'on') %} 
+        {{ '#%02x%02x%02x' % state_attr(entity, 'rgb_color') }}
+        {%- else %}
+        none
+        {% endif %}
+    multiline_secondary: false
+    secondary: |-
+      {{ states('sensor.multi_sensor_hallway_temperature') | round(0, 0) }}°C • 
+      {{ states('sensor.multi_sensor_hallway_humidity') | round(0, 0) }}%
+    tap_action:
+      action: navigate
+      navigation_path: /lovelace/hallway
+    hold_action:
+      action: none
+    double_tap_action:
+      action: none
+    badge_color: >-
+      {%- if states('switch.adaptive_lighting_sleep_mode_hallway') == 'on' %} 
+      purple
+      {%- elif states('input_boolean.hallway_motion_activated_lights') == 'off'
+      %}
+      pink
+      {%- else %}
+      {% endif %}
+    badge_icon: >-
+      {%- if states('switch.adaptive_lighting_sleep_mode_hallway') == 'on' %} 
+      mdi:moon-waning-crescent
+      {%- elif states('input_boolean.hallway_motion_activated_lights') == 'off'
+      %}
+      mdi:motion-sensor-off
+      {%- else %}
+      {% endif %}
+```
+
+{% endraw %}
+</details>
+
+
+## Calendar card
+Calendar card shows next event from calendar.
+
+<details markdown="block">
+  <summary>Image</summary>
+![greeter](\assets\images\frontpage\calendar.png)
+</details>
+<details markdown="block">
+  <summary>Code</summary>
+{% raw %}
+```yml
+type: custom:mushroom-template-card
+primary: '{{state_attr(''sensor.lovelace_calendar_short'', ''text'')}}'
+secondary: '{{state_attr(''sensor.lovelace_calendar_short'', ''time'')}}'
+icon: ios:calendar
+entity: sensor.lovelace_calendar_short
+icon_color: none
+```
+{% endraw %}
+</details>
+
+## Fan cards
+Overview of fan state and popup with controls. 
+
+<details markdown="block">
+  <summary>Image</summary>
+![greeter](\assets\images\frontpage\fan_popup.png)
+</details>
+<details markdown="block">
+  <summary>Code</summary>
+{% raw %}
+
+```yml
+type: horizontal-stack
+cards:
+  - type: custom:mushroom-fan-card
+    entity: fan.storblas
+    icon_animation: true
+    show_oscillate_control: false
+    show_percentage_control: false
+    tap_action:
+      action: fire-dom-event
+      browser_mod:
+        command: popup
+        deviceID:
+          - this
+        title: Inställningar
+        card:
+          type: vertical-stack
+          cards:
+            - type: custom:mushroom-title-card
+              title: Storblås
+              subtitle: ''
+            - type: horizontal-stack
+              cards:
+                - type: custom:mushroom-template-card
+                  primary: Av
+                  icon: ''
+                  fill_container: true
+                  layout: vertical
+                  icon_color: ''
+                  style: |
+                    :host {
+                      --primary-text-color: 
+                        {% set sensor = states('fan.storblas') %}
+                        {% if sensor == 'on' %}white
+                        {% elif sensor == 'off' %}rgba(10.0, 132.0, 255.0, 1.0)
+                        {% else %}
+                        white
+                        {% endif %}
+                    }
+                  tap_action:
+                    action: call-service
+                    service: fan.turn_off
+                    service_data: {}
+                    target:
+                      entity_id: fan.storblas
+                - type: custom:mushroom-template-card
+                  primary: På
+                  secondary: ''
+                  icon: ''
+                  fill_container: true
+                  layout: vertical
+                  style: |
+                    :host {
+                      --primary-text-color: 
+                        {% set sensor = states('fan.storblas') %}
+                        {% if sensor == 'on' %}rgba(10.0, 132.0, 255.0, 1.0)
+                        {% elif sensor == 'off' %}white
+                        {% else %}
+                        white
+                        {% endif %}
+                    }
+                  tap_action:
+                    action: call-service
+                    service: fan.turn_on
+                    service_data: {}
+                    target:
+                      entity_id: fan.storblas
+            - type: custom:mushroom-title-card
+              title: ''
+              subtitle: Vindstyrka
+            - type: horizontal-stack
+              cards:
+                - type: custom:mushroom-template-card
+                  primary: '1'
+                  icon: ''
+                  fill_container: true
+                  layout: vertical
+                  icon_color: ''
+                  style: |
+                    :host {
+                      --primary-text-color: 
+                        {% set sensor = state_attr('fan.storblas', 'percentage') %}
+                        {% if sensor <= 1 %}rgba(10.0, 132.0, 255.0, 1.0)
+                        {% elif sensor <= 25 %}white
+                        {% elif sensor <= 50 %}white
+                        {% elif sensor <= 75 %}white
+                        {% elif sensor <= 100 %}white
+                        {% else %}
+                        white
+                        {% endif %}
+                    }
+                  tap_action:
+                    action: call-service
+                    service: fan.set_percentage
+                    service_data:
+                      percentage: 1
+                    target:
+                      entity_id: fan.storblas
+                - type: custom:mushroom-template-card
+                  primary: '2'
+                  icon: ''
+                  fill_container: true
+                  layout: vertical
+                  icon_color: ''
+                  style: |
+                    :host {
+                      --primary-text-color: 
+                        {% set sensor = state_attr('fan.storblas', 'percentage') %}
+                        {% if sensor <= 1 %}white
+                        {% elif sensor <= 25 %}rgba(10.0, 132.0, 255.0, 1.0)
+                        {% elif sensor <= 50 %}white
+                        {% elif sensor <= 75 %}white
+                        {% elif sensor <= 100 %}white
+                        {% else %}
+                        white
+                        {% endif %}
+                    }
+                  tap_action:
+                    action: call-service
+                    service: fan.set_percentage
+                    service_data:
+                      percentage: 25
+                    target:
+                      entity_id: fan.storblas
+                - type: custom:mushroom-template-card
+                  primary: '3'
+                  icon: ''
+                  fill_container: true
+                  layout: vertical
+                  icon_color: ''
+                  style: |
+                    :host {
+                      --primary-text-color: 
+                        {% set sensor = state_attr('fan.storblas', 'percentage') %}
+                        {% if sensor <= 1 %}white
+                        {% elif sensor <= 25 %}white
+                        {% elif sensor <= 50 %}rgba(10.0, 132.0, 255.0, 1.0)
+                        {% elif sensor <= 75 %}white
+                        {% elif sensor <= 100 %}white
+                        {% else %}
+                        white
+                        {% endif %}
+                    }
+                  tap_action:
+                    action: call-service
+                    service: fan.set_percentage
+                    service_data:
+                      percentage: 50
+                    target:
+                      entity_id: fan.storblas
+                - type: custom:mushroom-template-card
+                  primary: '4'
+                  icon: ''
+                  fill_container: true
+                  layout: vertical
+                  icon_color: ''
+                  style: |
+                    :host {
+                      --primary-text-color: 
+                        {% set sensor = state_attr('fan.storblas', 'percentage') %}
+                        {% if sensor <= 1 %}white
+                        {% elif sensor <= 25 %}white
+                        {% elif sensor <= 50 %}white
+                        {% elif sensor <= 75 %}rgba(10.0, 132.0, 255.0, 1.0)
+                        {% elif sensor <= 100 %}white
+                        {% else %}
+                        white
+                        {% endif %}
+                    }
+                  tap_action:
+                    action: call-service
+                    service: fan.set_percentage
+                    service_data:
+                      percentage: 75
+                    target:
+                      entity_id: fan.storblas
+                - type: custom:mushroom-template-card
+                  primary: '5'
+                  icon: ''
+                  fill_container: true
+                  layout: vertical
+                  icon_color: ''
+                  style: |
+                    :host {
+                      --primary-text-color: 
+                        {% set sensor = state_attr('fan.storblas', 'percentage') %}
+                        {% if sensor <= 1 %}white
+                        {% elif sensor <= 25 %}white
+                        {% elif sensor <= 50 %}white
+                        {% elif sensor <= 75 %}white
+                        {% elif sensor <= 100 %}rgba(10.0, 132.0, 255.0, 1.0)
+                        {% else %}
+                        white
+                        {% endif %}
+                    }
+                  tap_action:
+                    action: call-service
+                    service: fan.set_percentage
+                    service_data:
+                      percentage: 100
+                    target:
+                      entity_id: fan.storblas
+            - type: custom:mushroom-title-card
+              title: ''
+              subtitle: Vindläge
+            - type: horizontal-stack
+              cards:
+                - type: custom:mushroom-template-card
+                  primary: Normalt
+                  icon: ''
+                  fill_container: true
+                  layout: vertical
+                  icon_color: ''
+                  style: |
+                    :host {
+                      --primary-text-color: 
+                        {% set sensor = state_attr('fan.storblas', 'mode') %}
+                        {% if sensor == 'Nature' %}white
+                        {% elif sensor == 'Normal' %}rgba(10.0, 132.0, 255.0, 1.0)
+                        {% else %}
+                        white
+                        {% endif %}
+                    }
+                  tap_action:
+                    action: call-service
+                    service: xiaomi_miio_fan.fan_set_natural_mode_off
+                    data:
+                      entity_id: fan.storblas
+                - type: custom:mushroom-template-card
+                  primary: Vindpust
+                  secondary: ''
+                  icon: ''
+                  fill_container: true
+                  layout: vertical
+                  style: |
+                    :host {
+                      --primary-text-color: 
+                        {% set sensor = state_attr('fan.storblas', 'mode') %}
+                        {% if sensor == 'Nature' %}rgba(10.0, 132.0, 255.0, 1.0)
+                        {% elif sensor == 'Normal' %}white
+                        {% else %}
+                        white
+                        {% endif %}
+                    }
+                  tap_action:
+                    action: call-service
+                    service: xiaomi_miio_fan.fan_set_natural_mode_on
+                    data:
+                      entity_id: fan.storblas
+            - type: custom:mushroom-title-card
+              title: ''
+              subtitle: Rotation
+            - type: horizontal-stack
+              cards:
+                - type: custom:mushroom-template-card
+                  primary: Av
+                  icon: ''
+                  fill_container: true
+                  layout: vertical
+                  icon_color: ''
+                  style: |
+                    :host {
+                      --primary-text-color: 
+                        {% set sensor = state_attr('fan.storblas', 'oscillating') %}
+                        {% if sensor == true %}white
+                        {% elif sensor == false %}rgba(10.0, 132.0, 255.0, 1.0)
+                        {% else %}
+                        white
+                        {% endif %}
+                    }
+                  tap_action:
+                    action: call-service
+                    service: fan.oscillate
+                    service_data:
+                      oscillating: false
+                    target:
+                      entity_id: fan.storblas
+                - type: custom:mushroom-template-card
+                  primary: På
+                  secondary: ''
+                  icon: ''
+                  fill_container: true
+                  layout: vertical
+                  style: |
+                    :host {
+                      --primary-text-color: 
+                        {% set sensor = state_attr('fan.storblas', 'oscillating') %}
+                        {% if sensor == true %}rgba(10.0, 132.0, 255.0, 1.0)
+                        {% elif sensor == false %}white
+                        {% else %}
+                        white
+                        {% endif %}
+                    }
+                  tap_action:
+                    action: call-service
+                    service: fan.oscillate
+                    service_data:
+                      oscillating: true
+                    target:
+                      entity_id: fan.storblas
+            - type: horizontal-stack
+              cards:
+                - type: custom:mushroom-template-card
+                  primary: 30°
+                  secondary: ''
+                  icon: ''
+                  fill_container: true
+                  layout: vertical
+                  icon_color: ''
+                  style: |
+                    :host {
+                      --primary-text-color: 
+                        {% set sensor = state_attr('fan.storblas', 'angle') %}
+                        {% if sensor == 30 %}rgba(10.0, 132.0, 255.0, 1.0)
+                        {% elif sensor == 60 %}white
+                        {% elif sensor == 90 %}white
+                        {% elif sensor == 120 %}white
+                        {% else %}
+                        white
+                        {% endif %}
+                    }
+                  tap_action:
+                    action: call-service
+                    service: xiaomi_miio_fan.fan_set_oscillation_angle
+                    service_data:
+                      entity_id: fan.storblas
+                      angle: 30
+                    target: {}
+                - type: custom:mushroom-template-card
+                  primary: 60°
+                  secondary: ''
+                  icon: ''
+                  fill_container: true
+                  layout: vertical
+                  style: |
+                    :host {
+                      --primary-text-color: 
+                        {% set sensor = state_attr('fan.storblas', 'angle') %}
+                        {% if sensor == 30 %}white
+                        {% elif sensor == 60 %}rgba(10.0, 132.0, 255.0, 1.0)
+                        {% elif sensor == 90 %}white
+                        {% elif sensor == 120 %}white
+                        {% else %}
+                        white
+                        {% endif %}
+                    }
+                  tap_action:
+                    action: call-service
+                    service: xiaomi_miio_fan.fan_set_oscillation_angle
+                    service_data:
+                      entity_id: fan.storblas
+                      angle: 60
+                    target: {}
+                - type: custom:mushroom-template-card
+                  primary: 90°
+                  secondary: ''
+                  icon: ''
+                  fill_container: true
+                  layout: vertical
+                  style: |
+                    :host {
+                      --primary-text-color: 
+                        {% set sensor = state_attr('fan.storblas', 'angle') %}
+                        {% if sensor == 30 %}white
+                        {% elif sensor == 60 %}white
+                        {% elif sensor == 90 %}rgba(10.0, 132.0, 255.0, 1.0)
+                        {% elif sensor == 120 %}white
+                        {% else %}
+                        white
+                        {% endif %}
+                    }
+                  tap_action:
+                    action: call-service
+                    service: xiaomi_miio_fan.fan_set_oscillation_angle
+                    service_data:
+                      entity_id: fan.storblas
+                      angle: 90
+                    target: {}
+                - type: custom:mushroom-template-card
+                  primary: 120°
+                  secondary: ''
+                  icon: ''
+                  fill_container: true
+                  layout: vertical
+                  style: |
+                    :host {
+                      --primary-text-color: 
+                        {% set sensor = state_attr('fan.storblas', 'angle') %}
+                        {% if sensor == 30 %}white
+                        {% elif sensor == 60 %}white
+                        {% elif sensor == 90 %}white
+                        {% elif sensor == 120 %}rgba(10.0, 132.0, 255.0, 1.0)
+                        {% else %}
+                        white
+                        {% endif %}
+                    }
+                  tap_action:
+                    action: call-service
+                    service: xiaomi_miio_fan.fan_set_oscillation_angle
+                    service_data:
+                      entity_id: fan.storblas
+                      angle: 120
+                    target: {}
+            - type: custom:mushroom-title-card
+              title: ''
+              subtitle: Vinkel
+            - type: horizontal-stack
+              cards:
+                - type: custom:mushroom-template-card
+                  primary: '← '
+                  icon: ''
+                  fill_container: false
+                  icon_color: ''
+                  tap_action:
+                    action: call-service
+                    service: fan.set_direction
+                    service_data:
+                      direction: reverse
+                    target:
+                      entity_id: fan.storblas
+                  layout: vertical
+                  secondary: ''
+                - type: custom:mushroom-template-card
+                  primary: →
+                  icon: ''
+                  fill_container: true
+                  layout: vertical
+                  icon_color: ''
+                  tap_action:
+                    action: call-service
+                    service: fan.set_direction
+                    service_data:
+                      direction: forward
+                    target:
+                      entity_id: fan.storblas
+            - type: custom:mushroom-title-card
+            - type: custom:mushroom-title-card
+    collapsible_controls: false
+    fill_container: false
+    hide_state: true
+    icon: ios:fanblades-fill
+```
+
+{% endraw %}
+</details>
+
+## Camera card
+Overview of camera state and popup with controls. 
+
+<details markdown="block">
+  <summary>Image</summary>
+![greeter](\assets\images\frontpage\camera_popup.png)
+</details>
+<details markdown="block">
+  <summary>Code</summary>
+{% raw %}
+
+```yml
+- type: custom:mushroom-template-card
+  primary: Kamera
+  secondary: >-
+    {% if states('camera.kamera_vardagsrum_hd') == "unavailable" or
+    state_attr('camera.kamera_vardagsrum_hd', 'privacy_mode') == 'on'  %}
+      {% set privacy = state_attr('camera.kamera_vardagsrum_hd', 'privacy_mode') %}
+      {% set wifi = states('switch.wifi_access_livingroom_camera') %}
+      {% if wifi == 'off' %}
+      Inget wifi
+      {% elif privacy == 'on' %}
+      Integritetsläge
+      {% else %}
+      Av
+      {% endif %}
+    {% else %}
+
+    På
+
+    {% endif %}
+  icon: ios:camera-fill
+  entity: camera.kamera_vardagsrum_hd
+  icon_color: |-
+    {% if states('camera.kamera_vardagsrum_hd') == "unavailable" %}
+    grey
+    {% else %}
+    blue
+    {% endif %}
+  tap_action:
+    action: fire-dom-event
+    browser_mod:
+      command: popup
+      deviceID:
+        - this
+      title: ' '
+      card:
+        type: vertical-stack
+        cards:
+          - type: custom:mushroom-title-card
+            title: Kamera
+            subtitle: ''
+          - type: custom:webrtc-camera
+            entity: camera.kamera_vardagsrum_hd
+          - type: custom:mushroom-title-card
+            title: ''
+            subtitle: Kontroll
+          - type: horizontal-stack
+            cards:
+              - type: custom:mushroom-template-card
+                primary: ←
+                secondary: ''
+                icon: ''
+                fill_container: true
+                layout: vertical
+                tap_action:
+                  action: call-service
+                  service: tapo_control.ptz
+                  entity_id: camera.kamera_vardagsrum_hd
+                  data:
+                    pan: LEFT
+                  target:
+                    entity_id: camera.kamera_vardagsrum_hd
+              - type: custom:mushroom-template-card
+                primary: ↑
+                icon: ''
+                fill_container: true
+                layout: vertical
+                icon_color: ''
+                tap_action:
+                  action: call-service
+                  service: tapo_control.ptz
+                  entity_id: camera.kamera_vardagsrum_hd
+                  data:
+                    tilt: UP
+                  target:
+                    entity_id: camera.kamera_vardagsrum_hd
+              - type: custom:mushroom-template-card
+                primary: ↓
+                secondary: ''
+                icon: ''
+                fill_container: true
+                layout: vertical
+                tap_action:
+                  action: call-service
+                  service: tapo_control.ptz
+                  entity_id: camera.kamera_vardagsrum_hd
+                  data:
+                    tilt: DOWN
+                  target:
+                    entity_id: camera.kamera_vardagsrum_hd
+              - type: custom:mushroom-template-card
+                primary: →
+                secondary: ''
+                icon: ''
+                fill_container: true
+                layout: vertical
+                tap_action:
+                  action: call-service
+                  service: tapo_control.ptz
+                  entity_id: camera.kamera_vardagsrum_hd
+                  data:
+                    pan: RIGHT
+                  target:
+                    entity_id: camera.kamera_vardagsrum_hd
+          - type: horizontal-stack
+            cards:
+              - type: custom:mushroom-template-card
+                primary: Återställ
+                secondary: ''
+                icon: ''
+                fill_container: true
+                layout: vertical
+                tap_action:
+                  action: call-service
+                  service: tapo_control.ptz
+                  data:
+                    preset: default
+                  target:
+                    entity_id: camera.kamera_vardagsrum_hd
+              - type: custom:mushroom-template-card
+                primary: Blockera
+                secondary: ''
+                icon: ''
+                fill_container: true
+                layout: vertical
+                tap_action:
+                  action: call-service
+                  service: tapo_control.ptz
+                  data:
+                    preset: block
+                  target:
+                    entity_id: camera.kamera_vardagsrum_hd
+          - type: custom:mushroom-title-card
+            title: ''
+            subtitle: Mörkerseende
+          - type: horizontal-stack
+            cards:
+              - type: custom:mushroom-template-card
+                primary: Auto
+                secondary: ''
+                icon: ''
+                fill_container: true
+                layout: vertical
+                style: |
+                  :host {
+                    --primary-text-color: 
+                      {% set sensor = state_attr('camera.kamera_vardagsrum_hd', 'day_night_mode') %}
+                      {% if sensor == 'auto' %}rgba(10.0, 132.0, 255.0, 1.0)
+                      {% elif sensor == 'on' %}white
+                      {% elif sensor == 'off' %}white
+                      {% else %}
+                      white
+                      {% endif %}
+                  }
+                tap_action:
+                  action: call-service
+                  service: tapo_control.set_day_night_mode
+                  data:
+                    day_night_mode: auto
+                  target:
+                    entity_id: camera.kamera_vardagsrum_hd
+              - type: custom:mushroom-template-card
+                primary: På
+                secondary: ''
+                icon: ''
+                fill_container: true
+                layout: vertical
+                style: |
+                  :host {
+                    --primary-text-color: 
+                      {% set sensor = state_attr('camera.kamera_vardagsrum_hd', 'day_night_mode') %}
+                      {% if sensor == 'auto' %}white
+                      {% elif sensor == 'on' %}rgba(10.0, 132.0, 255.0, 1.0)
+                      {% elif sensor == 'off' %}white
+                      {% else %}
+                      white
+                      {% endif %}
+                  }
+                tap_action:
+                  action: call-service
+                  service: tapo_control.set_day_night_mode
+                  data:
+                    day_night_mode: 'on'
+                  target:
+                    entity_id: camera.kamera_vardagsrum_hd
+              - type: custom:mushroom-template-card
+                primary: Av
+                secondary: ''
+                icon: ''
+                fill_container: true
+                layout: vertical
+                style: |
+                  :host {
+                    --primary-text-color: 
+                      {% set sensor = state_attr('camera.kamera_vardagsrum_hd', 'day_night_mode') %}
+                      {% if sensor == 'auto' %}white
+                      {% elif sensor == 'on' %}white
+                      {% elif sensor == 'off' %}rgba(10.0, 132.0, 255.0, 1.0)
+                      {% else %}
+                      white
+                      {% endif %}
+                  }
+                tap_action:
+                  action: call-service
+                  service: tapo_control.set_day_night_mode
+                  data:
+                    day_night_mode: 'off'
+                  target:
+                    entity_id: camera.kamera_vardagsrum_hd
+          - type: custom:mushroom-title-card
+            title: ''
+            subtitle: Integritetsläge
+          - type: horizontal-stack
+            cards:
+              - type: custom:mushroom-template-card
+                primary: På
+                secondary: ''
+                icon: ''
+                fill_container: true
+                layout: vertical
+                style: |
+                  :host {
+                    --primary-text-color: 
+                      {% set sensor = state_attr('camera.kamera_vardagsrum_hd', 'privacy_mode') %}
+                      {% if sensor == 'on' %}rgba(10.0, 132.0, 255.0, 1.0)
+                      {% elif sensor == 'off' %}white
+                      {% else %}
+                      white
+                      {% endif %}
+                  }
+                tap_action:
+                  action: call-service
+                  service: tapo_control.set_privacy_mode
+                  data:
+                    privacy_mode: 'on'
+                  target:
+                    entity_id: camera.kamera_vardagsrum_hd
+              - type: custom:mushroom-template-card
+                primary: Av
+                secondary: ''
+                icon: ''
+                fill_container: true
+                layout: vertical
+                style: |
+                  :host {
+                    --primary-text-color: 
+                      {% set sensor = state_attr('camera.kamera_vardagsrum_hd', 'privacy_mode') %}
+                      {% if sensor == 'on' %}white
+                      {% elif sensor == 'off' %}rgba(10.0, 132.0, 255.0, 1.0)
+                      {% else %}
+                      white
+                      {% endif %}
+                  }
+                tap_action:
+                  action: call-service
+                  service: tapo_control.set_privacy_mode
+                  data:
+                    privacy_mode: 'off'
+                  target:
+                    entity_id: camera.kamera_vardagsrum_hd
+          - type: custom:mushroom-title-card
+            title: ''
+            subtitle: Övrigt
+          - type: horizontal-stack
+            cards:
+              - type: custom:mushroom-template-card
+                primary: Wifi
+                secondary: ''
+                icon: ''
+                fill_container: true
+                layout: vertical
+                style: |
+                  :host {
+                    --primary-text-color: 
+                      {% set sensor = states('switch.wifi_access_livingroom_camera') %}
+                      {% if sensor == 'on' %}rgba(10.0, 132.0, 255.0, 1.0)
+                      {% elif sensor == 'off' %}white
+                      {% else %}
+                      white
+                      {% endif %}
+                  }
+                tap_action:
+                  action: call-service
+                  service: switch.toggle
+                  data: {}
+                  target:
+                    entity_id: switch.wifi_access_livingroom_camera
+                  confirmation:
+                    text: Är du säker?
+              - type: custom:mushroom-template-card
+                primary: Starta om
+                secondary: ''
+                icon: ''
+                fill_container: true
+                layout: vertical
+                tap_action:
+                  action: call-service
+                  service: tapo_control.reboot
+                  data: {}
+                  target:
+                    entity_id: camera.kamera_vardagsrum_hd
+                  confirmation:
+                    text: Är du säker?
+
+
+```
+
 {% endraw %}
 </details>
