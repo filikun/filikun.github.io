@@ -276,8 +276,11 @@ tap_action:
 </details>
 
 ## Conditional cards
-Red alert that a smoke detector is on. Will highlight where and what it has detected (smoke/heat). Blue alerts for ex thunder and if any door or window is open.
+Cards that are shown when a specific condition is met.
 
+
+#### Smoke detector
+Red alert that a smoke detector is on. Will highlight where and what it has detected (smoke/heat). 
 <details markdown="block">
   <summary>Image</summary>
 ![greeter](\assets\images\frontpage\conditional_smoke_detector.png)
@@ -331,6 +334,9 @@ cards:
 {% endraw %}
 </details>
 
+#### Thunder
+Will show if lightning was detected close by.
+
 <details markdown="block">
   <summary>Image</summary>
 ![greeter](\assets\images\frontpage\conditional_thunder.png)
@@ -361,6 +367,9 @@ card:
 ```
 {% endraw %}
 </details>
+
+#### Door or window open
+Will show what door/window is open in Swedish. 
 
 <details markdown="block">
   <summary>Image</summary>
@@ -415,6 +424,9 @@ card:
 ```
 {% endraw %}
 </details>
+
+#### Away
+Shows useful house information on the frontpage when neither of us is home. 
 
 <details markdown="block">
   <summary>Image</summary>
@@ -532,6 +544,9 @@ card:
 {% endraw %}
 </details>
 
+#### Night mode
+Shows up between 20:00 and 08:00 (or if Night mode is on)
+
 <details markdown="block">
   <summary>Image</summary>
 ![greeter](\assets\images\frontpage\conditional_night_mode.png)
@@ -558,6 +573,9 @@ states:
 ```
 {% endraw %}
 </details>
+
+#### Guest mode
+Will only be visible when a guest is connected to our wifi.
 
 <details markdown="block">
   <summary>Image</summary>
@@ -588,43 +606,3 @@ card:
 ```
 {% endraw %}
 </details>
-
-
-<table>
-  <tr>
-    <td width="33%" valign="bottom">
-<img alt="Greeter" src="\assets\images\frontpage\greeter.png"><br/>
-Greeter</td>
-    <td width="33%" valign="bottom">
-<img width="50%" alt="Climate chip" src="\assets\images\frontpage\chip_climate.png"/><br/>
-Climate chip</td>
-    <td width="33%" valign="bottom">
-<img alt="Presence" src="\assets\images\frontpage\presence.png"/><br/>
-Presence</td>
-  </tr>
-  <tr>
-    <td width="33%" valign="bottom">
-<img alt="Presence popup" src="\assets\images\frontpage\presence_popup.png"/><br/>
-Presence popup</td>
-    <td width="33%" valign="bottom">
-<img alt="Conditional smoke detector" src="\assets\images\frontpage\conditional_smoke_detector.png"/><br/>
-Conditional smoke detector</td>
-    <td width="33%" valign="bottom"><img alt="Conditional thunder" src="\assets\images\frontpage\conditional_thunder.png"/><br/>
-Conditional thunder</td>
-  </tr>
-  <tr>
-    <td width="33%" valign="bottom">
-<img alt="Conditional door window" src="\assets\images\frontpage\conditional_door_window.png"/><br/>
-Conditional door window</td>
-    <td width="33%" valign="bottom">
-<img alt="Conditional Away" src="\assets\images\frontpage\conditional_away.png"/><br/>
-Conditional Away</td>
-    <td width="33%" valign="bottom"><img alt="Conditional night mode" src="\assets\images\frontpage\conditional_night_mode.png"/><br/>
-Conditional night mode</td>
-  </tr>
-  <tr>
-    <td width="33%" valign="bottom">
-<img alt="Conditional guest mode" src="\assets\images\frontpage\conditional_guest_mode.png"/><br/>
-Conditional guest mode</td>
-  </tr>      
-</table>
