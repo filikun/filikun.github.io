@@ -4,6 +4,7 @@ title: 📄 Frontpage
 parent: 🍄 Mushroom cards
 grand_parent: 🦄 Dashboard UI
 nav_order: 1
+has_toc: true
 ---
 
 # Front page
