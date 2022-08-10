@@ -12,6 +12,10 @@ My HA documention as I lack any memory.
 ## Important information
 All lights have default `power-on` (on) except bedroom lights to prevent lights from turning on after power failure in the middle of the night. This will result in these lights not able to turn on manually via physical light switch.
 
+## Naming convention
+Lights: light.room_location `light.bathroom_mirror`
+Sensors: sensor.attribute_location_type `sensor.temperature_bathroom_multisensor`
+
 ## Installation method
 Installed on Proxmox via [this script](https://github.com/whiskerz007/proxmox_hassos_install)
 
