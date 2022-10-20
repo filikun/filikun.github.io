@@ -16,8 +16,8 @@ has_toc: true
      <td>Graphs</td>
   </tr>
   <tr>
-    <td><img src="\assets\images\theme\ios_theme\ios_theme_front.jpeg" width=270 height=480></td>
-    <td><img src="\assets\images\theme\ios_theme\ios_theme_device.jpeg" width=270 height=480></td>
-    <td><img src="\assets\images\theme\ios_theme\ios_theme_graphs.jpeg" width=270 height=480></td>
+    <td valign="top"><img src="\assets\images\theme\ios_theme\ios_theme_front.jpeg" width=270 height=480></td>
+    <td valign="top"><img src="\assets\images\theme\ios_theme\ios_theme_device.jpeg" width=270 height=480></td>
+    <td valign="top"><img src="\assets\images\theme\ios_theme\ios_theme_graphs.jpeg" width=270 height=480></td>
   </tr>
  </table>
