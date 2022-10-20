@@ -9,9 +9,15 @@ has_toc: true
 
 # iOS Theme
 
-<p float="middle">
-  <img src="\assets\images\theme\ios_theme\ios_theme_front.jpeg" width="25%" />
-  <img src="\assets\images\theme\ios_theme\ios_theme_device.jpeg" width="25%" /> 
-  <img src="\assets\images\theme\ios_theme\ios_theme_states.jpeg" width="25%" />
-  <img src="\assets\images\theme\ios_theme\ios_theme_graphs.jpeg" width="25%" />  
-</p>
+<table>
+  <tr>
+    <td>Frontpage</td>
+     <td>Devices</td>
+     <td>Graphs</td>
+  </tr>
+  <tr>
+    <td><img src="\assets\images\theme\ios_theme\ios_theme_front.jpeg" width=270 height=480></td>
+    <td><img src="\assets\images\theme\ios_theme\ios_theme_device.jpeg" width=270 height=480></td>
+    <td><img src="\assets\images\theme\ios_theme\ios_theme_graphs.jpeg" width=270 height=480></td>
+  </tr>
+ </table>
