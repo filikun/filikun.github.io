@@ -1,0 +1,288 @@
+ios_control_lights:
+  triggers_update: all
+  show_icon: false
+  show_name: false
+  show_label: false
+  styles:
+    grid:
+      - grid-template-areas: "'item_background' 'item_title' 'item_divider' 'item_graph'" 
+      - grid-template-columns: "'100%' '100%' '100%' '100%'"
+      - grid-template-rows: "'max-content' 'max-content' 'max-content' 'max-content'"
+    card:
+      - border-radius: "none"
+      - box-shadow: "none"
+      - padding-top: "10px"
+      - padding-bottom: "10px"
+      - padding-left: "8px"
+      - padding-right: "8px"
+  custom_fields:
+    item_background:
+      card:
+        type: "custom:button-card"
+        show_icon: false
+        show_name: false
+        show_label: false  
+        styles:
+          grid:
+            - grid-template-areas: "'item1'"              
+            - grid-template-columns: "'100%'"
+            - grid-template-rows: "'max-content'"            
+            - column-gap: "0px"
+          card:
+            - background-color: "var(--background-color)"
+            - border-radius: "8px"
+            - box-shadow: "none"
+            - margin: "none"
+            - padding-top: "0px"
+            - padding-bottom: "0px"
+            - padding-left: "4px"
+            - padding-right: "4px"
+        custom_fields:    
+          item1:
+            card:
+              type: "custom:button-card"
+              show_icon: false
+              show_name: false
+              show_label: false  
+              styles:
+                grid:
+                  - grid-template-areas: "'title_1 title_2'"              
+                  - grid-template-columns: "50% 50%"
+                  - grid-template-rows: "'max-content max-content'"            
+                  - column-gap: "0px"
+                card:
+                  - background-color: "var(--material-secondary-background-color)"
+                  - border-radius: "8px"
+                  - box-shadow: "none"
+                  - margin: "none"
+                  - padding: "2px"
+              custom_fields:
+                title_1:
+                  card:
+                    type: "custom:button-card"
+                    show_icon: false
+                    name: "[[[ return variables.title_1 ]]]"
+                    tap_action:
+                      action: call-service
+                      service: input_select.select_option
+                      service_data:
+                        option: 1
+                        entity_id: "[[[ return variables.time_span ]]]"          
+                    styles:
+                      card:
+                        - padding: "10px"
+                        - background-color: |
+                            [[[
+                              var span = states[variables.time_span].state;
+                              if ( span == "1" )
+                                return "var(--mdc-checkbox-unchecked-color)";
+                              else
+                                return "var(--material-secondary-background-color)";
+                            ]]]  
+                        - box-shadow: "none"
+                        - border-radius: "8px"
+                        - margin: "none"
+                      name:
+                        - align-self: "center"
+                        - justify-self: "center"
+                        - font-weight: "normal"
+                        - font-size: "14px"
+                        - margin-left: "0px"
+                        - margin: "none"
+                title_2:
+                  card:
+                    type: "custom:button-card"
+                    show_icon: false
+                    name: "[[[ return variables.title_2 ]]]"
+                    tap_action:
+                      action: call-service
+                      service: input_select.select_option
+                      service_data:
+                        option: 10
+                        entity_id: "[[[ return variables.time_span ]]]"             
+                    styles:
+                      card:
+                        - padding: "10px"
+                        - background-color: |
+                            [[[
+                              var span = states[variables.time_span].state;
+                              if ( span == "10" )
+                                return "var(--mdc-checkbox-unchecked-color)";
+                              else
+                                return "var(--material-secondary-background-color)";
+                            ]]]  
+                        - box-shadow: "none"
+                        - border-radius: "8px"
+                        - margin: "none"
+                      name:
+                        - align-self: "center"
+                        - justify-self: "center"
+                        - font-weight: "normal"
+                        - font-size: "14px"
+                        - margin-left: "0px"
+                        - margin: "none"
+
+    item_title:
+      card:
+        type: "custom:button-card"
+        show_icon: false
+        show_name: false
+        show_label: false
+        styles:
+          grid:
+            - grid-template-areas: "'name_1' 'name_2'"              
+            - grid-template-columns: "'100%' '100%'"           
+            - column-gap: "0px"
+          card:
+            - background-color: "var(--background-color)"
+            - border-radius: "8px"
+            - box-shadow: "none"
+            - margin: "none"
+            - padding-top: "10px"
+            - padding-bottom: "5px"
+            - padding-left: "6px"
+            - padding-right: "4px"          
+        custom_fields:  
+          name_1:
+            card:
+              type: "custom:button-card"
+              show_icon: false
+              show_label: false
+              name: |
+                [[[
+                  var temp = states[variables.entity].state;
+                  var unit = variables.entity_unit;
+                  return "Senaste mätning: " + Math.round(temp * 10) / 10 + unit;
+                ]]] 
+              styles:
+                card:
+                  - background-color: "var(--background-color)"
+                  - box-shadow: "none"
+                  - margin: "none"
+                  - pointer-events: "none" 
+                  - padding: "0px" 
+                  - pointer-events: "none"                                             
+                name:
+                  - align-self: start
+                  - justify-self: start
+                  - margin: none
+                  - background: none
+                  - box-shadow: none
+                  - font-size: "16px"
+                  - color: "var(--primary-text-color)"
+                  - font-weight: "200"
+          name_2:
+            card:
+              type: "custom:button-card"
+              show_icon: false
+              show_label: false
+              show_name: false
+              show_last_changed: true
+              entity: "[[[ return variables.entity ]]]"
+              styles:
+                card:
+                  - background-color: "var(--background-color)"
+                  - box-shadow: "none"
+                  - margin: "none"
+                  - pointer-events: "none"
+                  - padding: "0px" 
+                  - pointer-events: "none"                                              
+                label:
+                  - align-self: start
+                  - justify-self: start
+                  - margin: none
+                  - background: none
+                  - box-shadow: none
+                  - font-weight: "200"
+                  - font-size: "15px"
+                  - color: "gray"  
+
+
+    item_divider:
+      card:
+        type: entities
+        card_mod:
+          style: |
+            ha-card {
+              box-shadow: none !important;
+            }
+            .card-content {
+              padding-top: 10px;
+              padding-bottom: 0px;
+              padding-left: 0px;
+              padding-right: 0px;
+              color: red;
+            }
+        entities:
+          - type: divider
+            style:
+             background: "var(--ios-divider);"                    
+
+    item_graph:
+      card:
+        type: vertical-stack
+        cards:
+
+          - type: 'custom:stack-in-card'
+            cards:       
+              - type: custom:button-card 
+                variables:
+                  title: "[[[ return variables.title ]]]"  
+                  icon: ios:lightbulb-fill
+                  icon_background: "red" 
+                  divider: false
+                  entity: light.office_shelf
+                template:
+                  - ios_button   
+          - type: custom:decluttering-card
+            template: ios_markdown
+            variables:
+              - text: " "
+
+          - type: 'custom:stack-in-card'
+            cards:       
+              - type: custom:button-card
+                variables:
+                  icon_1: ios:light-min
+                  icon_2: ios:light-max
+                  divider: false
+                  entity: light.office_shelf
+                template:
+                  - ios_slider
+          - type: custom:decluttering-card
+            template: ios_markdown
+            variables:
+              - text: Reglerar ljusstyrkan
+
+          - type: 'custom:stack-in-card'
+            cards:       
+              - type: custom:button-card
+                variables:
+                  icon_1: ios:snow
+                  icon_2: ios:sun-max-fill
+                  divider: false
+                  entity: light.office_shelf
+                  attribute: color_temp 
+                template:
+                  - ios_slider
+          - type: custom:decluttering-card
+            template: ios_markdown
+            variables:
+              - text: Justerar lampans temperatur från kallt blått till varmt rött.
+
+          - type: 'custom:stack-in-card'
+            cards:
+              - type: custom:button-card 
+                variables:
+                  title: 'Strömförbrukning' 
+                  icon: ios:power
+                  icon_background: "pink" 
+                  entity: sensor.office_shelf_power
+                  unit: "w"
+                  divider: false
+                  graph: "column"
+                template:
+                  - ios_state_popup_graph
+
+
+

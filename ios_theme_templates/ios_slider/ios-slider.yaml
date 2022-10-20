@@ -1,0 +1,158 @@
+ios_slider:
+  triggers_update: all
+  show_icon: false
+  show_name: false
+  show_label: false
+  variables:
+    entity: input_boolean.test
+    attribute: ""
+  styles:
+    grid:
+      - grid-template-areas: "'item1' 'divider'" 
+      - grid-template-columns: "1fr"
+      - grid-template-rows: "min-content min-content"
+    card:
+      - border-radius: "var(--ha-card-border-radius)"
+      - box-shadow: "var(--box-shadow)"
+      - padding-top: 3px
+      - padding-bottom: 3px
+      - padding-left: 3px
+      - padding-right: 3px
+  custom_fields:
+    divider:
+      card:
+        type: entities
+        card_mod:
+          style: |
+            ha-card {
+              box-shadow: none !important;
+            }
+            .card-content {
+              padding-top: 3px;
+              padding-bottom: 0px;
+              padding-left: 10%;
+              padding-right: 0px;
+              color: red;
+            }
+        entities:
+          - type: divider
+            style:
+             background: |
+                [[[
+                  if ( variables.divider == true )
+                    return "var(--ios-divider);";
+                  else
+                    return "rgba(48,48,48,0);";
+                ]]]   
+    item1:
+      card:
+        type: "custom:button-card"
+        show_icon: false
+        show_name: false
+        show_label: false  
+        template: slider
+        styles:
+          grid:
+            - grid-template-areas: "'icon_1 slider icon_2'"              
+            - grid-template-columns: "12% 76% 12%"
+            - column-gap: "0px"
+          card:
+            - background-color: "rgba(0,0,0,0)"
+        custom_fields:
+          icon_1:
+            card:
+              type: "custom:button-card"
+              icon: "[[[ return variables.icon_1 ]]]"
+              template: icon_none                                                            
+          slider:              
+            card:
+              type: entities
+              entities:
+                - type: custom:slider-entity-row
+                  entity: "[[[ return variables.entity ]]]"
+                  full_row: true
+                  hide_state: true
+                  attribute: "[[[ return variables.attribute ]]]"
+              card_mod:
+                style:
+                  .: |
+                    ha-card { 
+                      box-shadow: none !important; 
+                     }
+                    .card-content {  
+                      padding-top: 0px;
+                      padding-bottom: 0px;
+                    }
+                  slider-entity-row:
+                    $:
+                      ha-slider:
+                        $:
+                          '#sliderKnob': |
+                            .slider-knob-inner::after  {display: none}
+                            .slider-knob-inner::before  {display: none}
+
+
+
+          icon_2:
+            card:
+              type: "custom:button-card"
+              icon: "[[[ return variables.icon_2 ]]]"
+              template: icon_none 
+
+slider:
+  styles:
+    grid:
+      - grid-template-areas: "'icon_1 slider icon_2'"    
+      - grid-template-columns: "12% 76% 12%"
+      - grid-template-rows: "min-content"
+      - column-gap: "7px"
+    card:
+      - box-shadow: "none"
+      - padding: "2px"
+    custom_fields:    
+      icon_1:
+        - align-self: center
+        - justify-self: center
+        - margin: none
+        - background: none
+        - box-shadow: none
+        - border: 0px 
+        - pointer-events: "none"
+      slider:
+        - align-self: center
+        - margin: none
+        - border: 0px 
+        - box-shadow: none                                    
+      icon_2:
+        - align-self: center
+        - justify-self: center
+        - margin: none
+        - background: none
+        - box-shadow: none
+        - border: 0px 
+        - pointer-events: "none"         
+
+icon_none: 
+  color: "var(--google-grey)"
+  show_icon: true
+  show_label: false
+  show_name: false
+  styles:
+    icon:
+      - color: "white"
+    img_cell:
+      - background-color: "none"
+      - border-radius: "6px"
+      - place-self: "center"
+      - width: "30px"
+      - height: "30px"
+    grid:
+      - grid-template-areas: "'i'"
+      - grid-template-columns: "min-content"
+      - grid-template-rows: "min-content"
+    card:
+      - border-radius: "21px"
+      - box-shadow: "none"
+      - padding: "0px"
+      - background: "none"
+  size: "20px"        

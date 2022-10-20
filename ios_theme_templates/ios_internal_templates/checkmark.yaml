@@ -1,0 +1,72 @@
+checkmark:
+  show_name: false
+  show_icon: true
+  show_last_changed: false
+  icon: mdi:check
+  styles:
+    card:
+      - padding_bottom: 0px
+      - padding_top: 0px
+      - padding_left: 0px
+      - padding_right: 0px
+      - background: none
+      - box-shadow: none
+      - display: block
+      - pointer-events: "none"  
+    grid:
+      - grid-template-areas: '"i"'
+      - grid-template-rows: 1fr
+      - pointer-events: "none"       
+    img_cell:
+      - display: flex
+      - justify-content: center
+      - align-items: center
+      - width: 52px
+      - height: 32px 
+      - pointer-events: "none"       
+    icon:
+      - display: flex
+      - justify-content: center
+      - align-items: center
+      - width: 2rem
+      - height: 2rem
+      - color: var(--ios-blue)
+      - pointer-events: "none"  
+
+
+
+no_checkmark:
+  show_name: false
+  show_icon: true
+  show_last_changed: false
+  icon: mdi:home
+  styles:
+    card:
+      - padding_bottom: 0px
+      - padding_top: 0px
+      - padding_left: 0px
+      - padding_right: 0px
+      - background: none
+      - box-shadow: none
+      - display: block
+      - pointer-events: "none"  
+    grid:
+      - grid-template-areas: '"i"'
+      - grid-template-rows: 1fr
+      - pointer-events: "none"       
+    img_cell:
+      - display: flex
+      - justify-content: center
+      - align-items: center
+      - width: 52px
+      - height: 32px 
+      - pointer-events: "none"       
+    icon:
+      - display: flex
+      - justify-content: center
+      - align-items: center
+      - width: 25px
+      - height: 1rem
+      - color: grey
+      - pointer-events: "none" 
+      - display: none       

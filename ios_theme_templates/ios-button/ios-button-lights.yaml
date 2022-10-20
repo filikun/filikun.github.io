@@ -1,0 +1,247 @@
+ios_button_lights:
+  triggers_update: all
+  show_icon: false
+  show_name: false
+  show_label: false
+  variables:
+    entity: input_boolean.test
+  styles:
+    grid:
+      - grid-template-areas: "'item1'" 
+      - grid-template-columns: "1fr"
+      - grid-template-rows: "min-content min-content"
+    card:
+      - border-radius: "var(--border-radius)"
+      - box-shadow: "var(--box-shadow)"
+      - padding-top: 0px
+      - padding-bottom: 0px
+      - padding-left: 10px
+      - padding-right: 0px
+  custom_fields:   
+    item1:
+      card:
+        type: "custom:button-card"
+        show_icon: false
+        show_name: false
+        show_label: false  
+        template: button_enabled
+        tap_action:
+          action: fire-dom-event
+          browser_mod:
+            service: browser_mod.popup
+            data:
+              browserID: this
+              hide_header: true
+              card_mod:
+                style:
+                  ha-dialog$: |
+                    @media (max-width: 450px), (max-height: 500px) {
+                      div.mdc-dialog div.mdc-dialog__container {
+                        align-items: start;
+                        padding-top: 0px;
+                      }
+                    }
+              content:
+                type: custom:layout-card
+                layout_type: custom:masonry-layout
+                layout:
+                  width: 300
+                cards:
+                  - type: custom:button-card
+                    template: card_header_popup
+                    variables:
+                      card_header_title: "[[[ return variables.title ]]]"
+                      card_header_back_button: true                  
+                  - type: 'custom:stack-in-card'
+                    cards:       
+                      - type: custom:button-card 
+                        variables:
+                          title: "[[[ return variables.title ]]]"  
+                          icon: ios:lightbulb-fill
+                          icon_background: "red" 
+                          divider: false
+                          entity: '[[[ return variables.entity ]]]'
+                        template:
+                          - ios_button   
+                  - type: custom:decluttering-card
+                    template: ios_markdown
+                    variables:
+                      - text: " "
+
+                  - type: 'custom:stack-in-card'
+                    cards:       
+                      - type: custom:button-card
+                        variables:
+                          icon_1: ios:light-min
+                          icon_2: ios:light-max
+                          divider: false
+                          entity: '[[[ return variables.entity ]]]'
+                        template:
+                          - ios_slider
+                  - type: custom:decluttering-card
+                    template: ios_markdown
+                    variables:
+                      - text: Reglerar ljusstyrkan
+
+
+                  - type: 'custom:stack-in-card'
+                    cards:       
+                      - type: custom:button-card
+                        variables:
+                          icon_1: ios:snow
+                          icon_2: ios:sun-max-fill
+                          divider: false
+                          entity: '[[[ return variables.entity ]]]'
+                          attribute: color_temp 
+                        template:
+                          - ios_slider
+                  - type: custom:decluttering-card
+                    template: ios_markdown
+                    variables:
+                      - text: Justerar lampans temperatur från kallt blått till varmt rött.
+
+                  - type: 'custom:stack-in-card'
+                    cards:
+                      - type: logbook
+                        card_mod:
+                          style: |
+                            ha-logbook {
+                              height: 250px !important;
+                            }       
+                        entities: 
+                          - '[[[ return variables.entity ]]]'
+
+                  - type: custom:decluttering-card
+                    template: separator
+
+                  - type: 'custom:stack-in-card'
+                    cards:
+                      - type: custom:button-card 
+                        variables:
+                          title: "Strömförbrukning"
+                          icon: ios:power
+                          icon_background: "pink"
+                          unit: "w" 
+                          entity: |
+                            [[[
+                              var entity_id = [variables.entity].toString();
+                              var new_state = entity_id.replace('light.', 'sensor.powercalc_');                              
+                              return new_state + "_w";                         
+                            ]]]
+                          divider: false
+                          graph: "column"
+                        template:
+                          - ios_state_nothing     
+        styles:
+          grid:
+            - grid-template-columns: 12% 78% 10%
+            - column-gap: "0px"
+          card:
+            - background-color: "rgba(0,0,0,0)"
+        custom_fields:
+          icon:
+            card:
+              type: "custom:button-card"
+              icon: "[[[ return variables.icon ]]]"
+              color: "var(--google-grey)"
+              show_icon: true
+              show_label: false
+              show_name: false
+              styles:
+                icon:
+                  - color: "[[[ return variables.icon_background ]]]"
+                img_cell:
+                  - background-color: "var(--box-shadow)"
+                  - border-radius: "6px"
+                  - place-self: "center"
+                  - width: "30px"
+                  - height: "30px"
+                grid:
+                  - grid-template-areas: "'i'"
+                  - grid-template-columns: "min-content"
+                  - grid-template-rows: "min-content"
+                card:
+                  - border-radius: "21px"
+                  - box-shadow: "none"
+                  - padding: "0px"
+                  - background: "none"
+                  - overflow: "visible"                  
+              size: "20px"
+
+          title:
+            card:
+              type: "custom:button-card"
+              show_icon: false
+              name: "[[[ return variables.title ]]]"
+              template:
+                - "icon_info"
+              styles:
+                card:
+                  - padding: "6px"
+                  - margin-left: "-6px"
+                  - background-color: "rgba(0,0,0,0)" 
+                name:
+                  - align-self: "start"
+                  - justify-self: "start"
+                  - font-weight: "normal"
+                  - font-size: "14px"
+                  - margin-left: "0px"                                                                 
+          button:              
+            card:
+              type: entities
+              card_mod:
+                style: |
+                  ha-card {
+                    box-shadow: none !important;
+                    width: 0% !important;
+                    height: 0%!important;     
+                  }
+                  .card-content {
+                    padding-top: 0px;
+                    padding-bottom: 0px;
+                  }
+              entities:
+                - entity: '[[[ return variables.entity ]]]'
+                  icon: none
+                  name: ' '
+                  card_mod:
+                    style:
+                      hui-generic-entity-row:
+                        ha-entity-toggle:
+                          $:
+                            ha-switch:
+                              $: |
+                                .mdc-switch .mdc-switch__track {
+                                  opacity: 1 !important;
+                                }                   
+              show_header_toggle: false                  
+         
+
+button_enabled:
+  styles:
+    grid:
+      - grid-template-areas: "'icon title button'"    
+      - grid-template-columns: "1fr 1fr 1fr 1fr"
+      - grid-template-rows: "min-content"
+      - column-gap: "7px"
+    card:
+      - box-shadow: "none"
+      - padding: "2px"
+    custom_fields:
+      icon:
+        - align-self: center
+        - justify-self: start
+        - margin: none
+        - background: none
+        - box-shadow: none
+        - border: 0px 
+        - pointer-events: "none"                  
+      button:
+        - align-self: center
+        - justify-self: end       
+        - margin: none  
+        - display: block
+        - pointer-events: "none"               
+      title:
+        - pointer-events: "none"            
+            

@@ -1,0 +1,18 @@
+icon_info:
+  color: "var(--google-grey)"
+  show_icon: true
+  show_label: true
+  show_name: true
+  styles:
+    name:
+      - align-self: "start"
+      - justify-self: "start"
+      - font-weight: "bold"
+      - font-size: "14px"
+      - margin-left: "12px"
+    card:
+      - border-radius: "21px 8px 8px 21px"
+      - box-shadow: "none"
+      - padding: "0px"
+      - background: "none"
+  size: "20px"  

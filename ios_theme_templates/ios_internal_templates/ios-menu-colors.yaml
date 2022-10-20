@@ -1,0 +1,250 @@
+### Icon & colors ###
+icon_blue: 
+  color: "var(--google-grey)"
+  show_icon: true
+  show_label: false
+  show_name: false
+  styles:
+    icon:
+      - color: "white"
+    img_cell:
+      - background-color: "var(--ios-blue)"
+      - border-radius: "6px"
+      - place-self: "center"
+      - width: "30px"
+      - height: "30px"
+    grid:
+      - grid-template-areas: "'i'"
+      - grid-template-columns: "min-content"
+      - grid-template-rows: "min-content"
+    card:
+      - border-radius: "21px"
+      - box-shadow: "none"
+      - padding: "0px"
+      - background: "none"
+  size: "20px"
+
+icon_green: 
+  color: "var(--google-grey)"
+  show_icon: true
+  show_label: false
+  show_name: false
+  styles:
+    icon:
+      - color: "white"
+    img_cell:
+      - background-color: "var(--ios-green)"
+      - border-radius: "6px"
+      - place-self: "center"
+      - width: "30px"
+      - height: "30px"
+    grid:
+      - grid-template-areas: "'i'"
+      - grid-template-columns: "min-content"
+      - grid-template-rows: "min-content"
+    card:
+      - border-radius: "21px"
+      - box-shadow: "none"
+      - padding: "0px"
+      - background: "none"
+  size: "20px"
+
+icon_indigo: 
+  color: "var(--google-grey)"
+  show_icon: true
+  show_label: false
+  show_name: false
+  styles:
+    icon:
+      - color: "white"
+    img_cell:
+      - background-color: "var(--ios-indigo)"
+      - border-radius: "6px"
+      - place-self: "center"
+      - width: "30px"
+      - height: "30px"
+    grid:
+      - grid-template-areas: "'i'"
+      - grid-template-columns: "min-content"
+      - grid-template-rows: "min-content"
+    card:
+      - border-radius: "21px"
+      - box-shadow: "none"
+      - padding: "0px"
+      - background: "none"
+  size: "20px"
+
+icon_orange: 
+  color: "var(--google-grey)"
+  show_icon: true
+  show_label: false
+  show_name: false
+  styles:
+    icon:
+      - color: "white"
+    img_cell:
+      - background-color: "var(--ios-orange)"
+      - border-radius: "6px"
+      - place-self: "center"
+      - width: "30px"
+      - height: "30px"
+    grid:
+      - grid-template-areas: "'i'"
+      - grid-template-columns: "min-content"
+      - grid-template-rows: "min-content"
+    card:
+      - border-radius: "21px"
+      - box-shadow: "none"
+      - padding: "0px"
+      - background: "none"
+  size: "20px"
+
+icon_pink: 
+  color: "var(--google-grey)"
+  show_icon: true
+  show_label: false
+  show_name: false
+  styles:
+    icon:
+      - color: "white"
+    img_cell:
+      - background-color: "var(--ios-pink)"
+      - border-radius: "6px"
+      - place-self: "center"
+      - width: "30px"
+      - height: "30px"
+    grid:
+      - grid-template-areas: "'i'"
+      - grid-template-columns: "min-content"
+      - grid-template-rows: "min-content"
+    card:
+      - border-radius: "21px"
+      - box-shadow: "none"
+      - padding: "0px"
+      - background: "none"
+  size: "20px"
+
+icon_purple: 
+  color: "var(--google-grey)"
+  show_icon: true
+  show_label: false
+  show_name: false
+  styles:
+    icon:
+      - color: "white"
+    img_cell:
+      - background-color: "var(--ios-purple)"
+      - border-radius: "6px"
+      - place-self: "center"
+      - width: "30px"
+      - height: "30px"
+    grid:
+      - grid-template-areas: "'i'"
+      - grid-template-columns: "min-content"
+      - grid-template-rows: "min-content"
+    card:
+      - border-radius: "21px"
+      - box-shadow: "none"
+      - padding: "0px"
+      - background: "none"
+  size: "20px"
+
+icon_red: 
+  color: "var(--google-grey)"
+  show_icon: true
+  show_label: false
+  show_name: false
+  styles:
+    icon:
+      - color: "white"
+    img_cell:
+      - background-color: "var(--ios-red)"
+      - border-radius: "6px"
+      - place-self: "center"
+      - width: "30px"
+      - height: "30px"
+    grid:
+      - grid-template-areas: "'i'"
+      - grid-template-columns: "min-content"
+      - grid-template-rows: "min-content"
+    card:
+      - border-radius: "21px"
+      - box-shadow: "none"
+      - padding: "0px"
+      - background: "none"
+  size: "20px"
+
+icon_teal: 
+  color: "var(--google-grey)"
+  show_icon: true
+  show_label: false
+  show_name: false
+  styles:
+    icon:
+      - color: "white"
+    img_cell:
+      - background-color: "var(--ios-teal)"
+      - border-radius: "6px"
+      - place-self: "center"
+      - width: "30px"
+      - height: "30px"
+    grid:
+      - grid-template-areas: "'i'"
+      - grid-template-columns: "min-content"
+      - grid-template-rows: "min-content"
+    card:
+      - border-radius: "21px"
+      - box-shadow: "none"
+      - padding: "0px"
+      - background: "none"
+  size: "20px"
+
+icon_yellow: 
+  color: "var(--google-grey)"
+  show_icon: true
+  show_label: false
+  show_name: false
+  styles:
+    icon:
+      - color: "white"
+    img_cell:
+      - background-color: "var(--ios-yellow)"
+      - border-radius: "6px"
+      - place-self: "center"
+      - width: "30px"
+      - height: "30px"
+    grid:
+      - grid-template-areas: "'i'"
+      - grid-template-columns: "min-content"
+      - grid-template-rows: "min-content"
+    card:
+      - border-radius: "21px"
+      - box-shadow: "none"
+      - padding: "0px"
+      - background: "none"
+  size: "20px"
+
+icon_gray: 
+  color: "var(--google-grey)"
+  show_icon: true
+  show_label: false
+  show_name: false
+  styles:
+    icon:
+      - color: "white"
+    img_cell:
+      - background-color: "var(--ios-gray)"
+      - border-radius: "6px"
+      - place-self: "center"
+      - width: "30px"
+      - height: "30px"
+    grid:
+      - grid-template-areas: "'i'"
+      - grid-template-columns: "min-content"
+      - grid-template-rows: "min-content"
+    card:
+      - border-radius: "21px"
+      - box-shadow: "none"
+      - padding: "0px"
+      - background: "none"
+  size: "20px"

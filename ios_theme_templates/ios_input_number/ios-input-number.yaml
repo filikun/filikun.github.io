@@ -1,0 +1,151 @@
+ios_input_number:
+  triggers_update: all
+  show_icon: false
+  show_name: false
+  show_label: false
+  variables:
+    entity: input_boolean.test
+  styles:
+    grid:
+      - grid-template-areas: "'item1'" 
+      - grid-template-columns: "1fr"
+      - grid-template-rows: "min-content min-content"
+    card:
+      - border-radius: "var(--ha-card-border-radius)"
+      - box-shadow: "var(--box-shadow)"
+      - padding-top: 3px
+      - padding-bottom: 3px
+      - padding-left: 10px
+      - padding-right: 0px
+  custom_fields:  
+    item1:
+      card:
+        type: "custom:button-card"
+        show_icon: false
+        show_name: false
+        show_label: false  
+        template: input_number
+        styles:
+          grid:
+            - grid-template-columns: 12% 78% 10%
+            - column-gap: "0px"
+          card:
+            - background-color: "rgba(0,0,0,0)"
+        custom_fields:
+          icon:
+            card:
+              type: "custom:button-card"
+              icon: "[[[ return variables.icon ]]]"
+              template: |
+                [[[
+                  if ( variables.icon_background == "blue" )
+                    return "icon_blue";
+                  else if ( variables.icon_background == "green" )  
+                    return "icon_green";
+                  else if ( variables.icon_background == "indigo" )  
+                    return "icon_indigo";
+                  else if ( variables.icon_background == "orange" )  
+                    return "icon_orange";
+                  else if ( variables.icon_background == "pink" )  
+                    return "icon_pink";
+                  else if ( variables.icon_background == "purple" )  
+                    return "icon_purple";
+                  else if ( variables.icon_background == "red" )  
+                    return "icon_red"; 
+                  else if ( variables.icon_background == "teal" )  
+                    return "icon_teal";
+                  else if ( variables.icon_background == "yellow" )  
+                    return "icon_yellow";
+                  else if ( variables.icon_background == "gray" )  
+                    return "icon_gray";                                                                                                                                                                                  
+                  else
+                    return "icon_blue";
+                ]]] 
+              styles:
+                card:
+                  - overflow: "visible"
+          title:
+            card:
+              type: "custom:button-card"
+              show_icon: false
+              name: "[[[ return variables.title ]]]"
+              template:
+                - "icon_info"
+              styles:
+                card:
+                  - padding: "6px"
+                  - margin-left: "-6px"
+                  - background-color: "rgba(0,0,0,0)" 
+                name:
+                  - align-self: "start"
+                  - justify-self: "start"
+                  - font-weight: "normal"
+                  - font-size: "14px"
+                  - margin-left: "0px"                                                                 
+          input_number:              
+            card:
+              type: entities
+              card_mod:
+                style: |
+                  ha-card {
+                    box-shadow: none !important;
+                    width: 0% !important;
+                    height: 0%!important;     
+                  }
+                  .card-content {
+                    padding-top: 0px;
+                    padding-bottom: 0px;
+                  }              
+              entities:
+                - type: custom:numberbox-card
+                  entity: '[[[ return variables.entity ]]]'
+                  name: false
+                  icon: false             
+### Icon Info ###
+icon_info:
+  color: "var(--google-grey)"
+  show_icon: true
+  show_label: true
+  show_name: true
+  styles:
+    name:
+      - align-self: "start"
+      - justify-self: "start"
+      - font-weight: "bold"
+      - font-size: "14px"
+      - margin-left: "12px"
+    card:
+      - border-radius: "21px 8px 8px 21px"
+      - box-shadow: "none"
+      - padding: "0px"
+      - background: "none"
+  size: "20px"
+         
+
+input_number:
+  styles:
+    grid:
+      - grid-template-areas: "'icon title input_number'"    
+      - grid-template-columns: "1fr 1fr 1fr 1fr"
+      - grid-template-rows: "min-content"
+      - column-gap: "7px"
+    card:
+      - box-shadow: "none"
+      - padding: "2px"
+    custom_fields:
+      icon:
+        - align-self: center
+        - justify-self: start
+        - margin: none
+        - background: none
+        - box-shadow: none
+        - border: 0px 
+        - pointer-events: "none"                  
+      input_number:
+        - align-self: center
+        - justify-self: end       
+        - margin: none  
+        - display: block              
+      title:
+        - pointer-events: "none"            
+            

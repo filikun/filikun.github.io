@@ -1,0 +1,162 @@
+ios_state_battery:
+  triggers_update: all
+  show_icon: false
+  show_name: false
+  show_label: false
+  variables:
+    entity: "input_boolean.test"
+    unit: ""
+  styles:
+    grid:
+      - grid-template-areas: "'item1'" 
+      - grid-template-columns: "1fr"
+      - grid-template-rows: "min-content min-content"
+    card:
+      - border-radius: "var(--ha-card-border-radius)"
+      - box-shadow: "var(--box-shadow)"
+      - padding-top: 2px
+      - padding-bottom: 2px
+      - padding-left: 10px
+      - padding-right: 0px
+  custom_fields:   
+    item1:
+      card:
+        type: "custom:button-card"
+        show_icon: false
+        show_name: false
+        show_label: false
+        tap_action:
+          action: fire-dom-event
+          browser_mod:
+            service: browser_mod.more_info
+            data:
+              entity: '[[[ return variables.entity ]]]'
+              large: false
+              browser_id: THIS    
+        template: state_enabled 
+        styles:
+          grid:
+            - grid-template-columns: 12% 53% 25% 10% 
+            - column-gap: "0px"
+          card:
+            - background-color: "rgba(0,0,0,0)"
+        custom_fields:
+          icon:
+            card:
+              type: "custom:button-card"
+              icon: "[[[ return variables.icon ]]]"
+              template: |
+                [[[
+                  if ( variables.icon_background == "blue" )
+                    return "icon_blue";
+                  else if ( variables.icon_background == "green" )  
+                    return "icon_green";
+                  else if ( variables.icon_background == "indigo" )  
+                    return "icon_indigo";
+                  else if ( variables.icon_background == "orange" )  
+                    return "icon_orange";
+                  else if ( variables.icon_background == "pink" )  
+                    return "icon_pink";
+                  else if ( variables.icon_background == "purple" )  
+                    return "icon_purple";
+                  else if ( variables.icon_background == "red" )  
+                    return "icon_red"; 
+                  else if ( variables.icon_background == "teal" )  
+                    return "icon_teal";
+                  else if ( variables.icon_background == "yellow" )  
+                    return "icon_yellow";
+                  else if ( variables.icon_background == "gray" )  
+                    return "icon_gray";                                                                                                                                                                                  
+                  else
+                    return "icon_blue";
+                ]]] 
+              styles:
+                card:
+                  - overflow: "visible"
+          title:
+            card:
+              type: "custom:button-card"
+              show_icon: false
+              name: "[[[ return variables.title ]]]"
+              template:
+                - "icon_info"
+              styles:
+                card:
+                  - padding: "6px"
+                  - margin-left: "-6px"
+                  - background-color: "rgba(0,0,0,0)" 
+                name:
+                  - align-self: "start"
+                  - justify-self: "start"
+                  - font-weight: "normal"
+                  - font-size: "14px"
+                  - margin-left: "0px"                                                
+          state:
+            card:
+              type: "custom:button-card"
+              show_icon: false
+              name: >
+                [[[
+                  var state = states[variables.entity].state;
+                  var unit = [variables.unit];
+                  if ( state == "on" )
+                    return "På";
+                  else if ( state == "off" )  
+                    return "Av";
+                  else if ( state == "home" )  
+                    return "På";                       
+                  else if ( state == "not_home" )  
+                    return "Av";                    
+                  else if ( state == "open" )  
+                    return "Öppen";   
+                  else if ( state == "closed" )  
+                    return "Stängd";
+                  else if ( state == "idle" )  
+                    return "Vilar";  
+                  else if ( state == "cleaning" )  
+                    return "Städar";
+                  else if ( state == "docked" )  
+                    return "Dockad";
+                  else if ( state == "returning" )  
+                    return "Återvänder";
+                  else if ( state == "paused" )  
+                    return "Pausad"; 
+                  else if ( state == "buffering" )  
+                    return "Buffrar";
+                  else if ( state == "playing" )  
+                    return "Spelar";                                                                                                                                                                   
+                  else if ( unit == "w" ) 
+                    return Math.round(state) + unit;
+                  else if ( unit == "kWh" ) 
+                    return Math.round(state) + unit;
+                  else if ( unit == "°C" ) 
+                    return state + unit;
+                  else if ( unit == "%" ) 
+                    return state + unit; 
+                  else if ( unit == "m/s" ) 
+                    return state + unit;   
+                  else if ( unit == "g/m3" ) 
+                    return Math.round(state) + unit;                                                                                                                                                                                                                                                                                                          
+                  else
+                    return state;
+                ]]]   
+              template:
+                - "icon_info"
+              styles:
+                card:
+                  - padding: "6px"
+                  - margin-left: "-6px"
+                  - margin-bottom: "2.5px"
+                name:
+                  - align-self: "start"
+                  - justify-self: "start"
+                  - font-weight: "normal"
+                  - font-size: "16px"
+                  - color: gray                                   
+          ending:            
+            card:
+              type: "custom:button-card"
+              show_icon: true
+              name: "[[[ return variables.title ]]]"
+              template:
+                - "ending" 

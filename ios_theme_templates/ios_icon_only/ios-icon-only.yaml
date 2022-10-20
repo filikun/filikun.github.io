@@ -1,0 +1,124 @@
+ios_icon_only:
+  triggers_update: all
+  show_icon: false
+  show_name: false
+  show_label: false
+  variables:
+    entity: input_boolean.test
+  styles:
+    grid:
+      - grid-template-areas: "'item1'" 
+      - grid-template-columns: "1fr"
+      - grid-template-rows: "min-content min-content"
+    card:
+      - border-radius: "var(--ha-card-border-radius)"
+      - box-shadow: "var(--box-shadow)"
+      - padding-top: 2px
+      - padding-bottom: 2px
+      - padding-left: 10px
+      - padding-right: 0px
+  custom_fields:  
+    item1:
+      card:
+        type: "custom:button-card"
+        show_icon: false
+        show_name: false
+        show_label: false
+        tap_action:
+          action: navigate
+          navigation_path: '[[[ return variables.navigate ]]]'      
+        template: nothing_enabled  
+        styles:
+          grid:
+            - grid-template-columns: 12% 78% 10% 
+            - column-gap: "0px"
+          card:
+            - background-color: "rgba(0,0,0,0)"
+        custom_fields:
+          icon:
+            card:
+              type: "custom:button-card"
+              icon: "[[[ return variables.icon ]]]"
+              template: |
+                [[[
+                  if ( variables.icon_background == "blue" )
+                    return "icon_blue";
+                  else if ( variables.icon_background == "green" )  
+                    return "icon_green";
+                  else if ( variables.icon_background == "indigo" )  
+                    return "icon_indigo";
+                  else if ( variables.icon_background == "orange" )  
+                    return "icon_orange";
+                  else if ( variables.icon_background == "pink" )  
+                    return "icon_pink";
+                  else if ( variables.icon_background == "purple" )  
+                    return "icon_purple";
+                  else if ( variables.icon_background == "red" )  
+                    return "icon_red"; 
+                  else if ( variables.icon_background == "teal" )  
+                    return "icon_teal";
+                  else if ( variables.icon_background == "yellow" )  
+                    return "icon_yellow";
+                  else if ( variables.icon_background == "gray" )  
+                    return "icon_gray";                                                                                                                                                                                  
+                  else
+                    return "icon_blue";
+                ]]] 
+              styles:
+                card:
+                  - overflow: "visible"
+          title:
+            card:
+              type: "custom:button-card"
+              show_icon: false
+              name: "[[[ return variables.title ]]]"
+              template:
+                - "icon_info"
+              styles:
+                card:
+                  - padding: "6px"
+                  - margin-left: "-6px"
+                  - background-color: "rgba(0,0,0,0)" 
+                name:
+                  - align-self: "start"
+                  - justify-self: "start"
+                  - font-weight: "normal"
+                  - font-size: "14px"
+                  - margin-left: "0px"                                                                                  
+          ending:            
+            card:
+              type: "custom:button-card"
+              show_icon: true
+              name: "[[[ return variables.title ]]]"
+              template:
+                - "ending"
+
+### How many items ###
+nothing_enabled:
+  styles:
+    grid:
+      - grid-template-areas: "'icon title ending'"    
+      - grid-template-columns: "1fr 1fr 1fr 1fr"
+      - grid-template-rows: "min-content"
+      - column-gap: "7px"
+    card:
+      - box-shadow: "none"
+      - padding: "2px"
+    custom_fields:
+      icon:
+        - align-self: center
+        - justify-self: start
+        - margin: none
+        - background: none
+        - box-shadow: none
+        - border: 0px  
+        - pointer-events: "none"   
+      ending:
+        - align-self: center
+        - justify-self: end
+        - margin: none
+        - background: none
+        - box-shadow: none
+        - pointer-events: "none"                   
+      title:
+        - pointer-events: "none"             

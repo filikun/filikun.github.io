@@ -1,0 +1,27 @@
+state_disabled:
+  styles:
+    grid:
+      - grid-template-areas: "'icon title ending'"    
+      - grid-template-columns: "1fr 1fr 1fr"
+      - grid-template-rows: "min-content"
+      - column-gap: "7px"
+    card:
+      - box-shadow: "none"
+      - padding: "2px"
+    custom_fields:
+      icon:
+        - align-self: center
+        - justify-self: start
+        - margin: none
+        - background: none
+        - box-shadow: none 
+        - pointer-events: "none"  
+      ending:
+        - align-self: center
+        - justify-self: end
+        - margin: none
+        - background: none
+        - box-shadow: none
+        - pointer-events: "none"                                
+      title:
+        - pointer-events: "none" 
