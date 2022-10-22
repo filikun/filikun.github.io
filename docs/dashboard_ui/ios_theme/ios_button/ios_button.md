@@ -7,11 +7,10 @@ nav_order: 1
 has_children: false
 has_toc: false
 ---
-!-- markdownlint-disable MD046 --
 
 ## Description
 
-![Image title](../../assets/images/theme/ios_theme/ios_theme_front.jpeg){ width="500" }
+![Image title](\assets\images\theme\ios_theme\ios_theme_front.jpeg){ width="500" }
 
 Card description should be here.
 
@@ -38,8 +37,8 @@ Card description should be here.
     - ios_button
 ```
 
-??? note "Template Code"
+## Template
 
-    ```yaml title="ios-button.yaml"
-    --8<-- "ios_theme_templates/ios-button/ios-button.yaml"
-    ```
+ <link rel="stylesheet" href="https://github.com/filikun/filikun.github.io/blob/5a55d739d2d2f3e0299ecd76bf7efc1115dbc775/docs/ios_theme_templates/ios-button/ios-button.yaml" type="text/yaml" />
+
+
