@@ -8,11 +8,10 @@ has_children: false
 has_toc: false
 ---
 
-## Description
+## iOS button
 
 ![Image title](\assets\images\ios_templates\ios_button.png)
 
-Card description should be here.
 
 ## Variables
 
@@ -36,9 +35,3 @@ Card description should be here.
   template:
     - ios_button
 ```
-
-## Template
-
- <link rel="stylesheet" href="https://github.com/filikun/filikun.github.io/blob/5a55d739d2d2f3e0299ecd76bf7efc1115dbc775/docs/ios_theme_templates/ios-button/ios-button.yaml" type="text/yaml" />
-
-
