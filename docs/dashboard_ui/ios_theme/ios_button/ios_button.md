@@ -10,7 +10,7 @@ has_toc: false
 
 ## Description
 
-![Image title](\assets\images\theme\ios_theme\ios_theme_front.jpeg){ width="500" }
+![Image title](\assets\images\ios_templates\ios_button.png)
 
 Card description should be here.
 
