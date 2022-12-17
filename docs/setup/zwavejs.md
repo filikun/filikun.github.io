@@ -8,7 +8,7 @@ nav_order: 43
 
 ## Set clock on thermostats 
 
-```yml
+```
 service: zwave_js.invoke_cc_api
 data:
   command_class: "129"
