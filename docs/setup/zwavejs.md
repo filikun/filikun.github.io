@@ -19,8 +19,7 @@ data:
     timedelta(seconds=t.second, microseconds=t.microsecond) %} {{ [t.hour,
     t.minute, t.weekday()+1] }}
 target:
-  device_id:
-    - YOUR_DEVICE_ID
+  entity_id: climate.office_trv
 {% endraw %}    
 ```
 
