@@ -2,6 +2,7 @@
 layout: default
 title: 🍏 iOS tema old
 parent: 🍏 iOS tema
+grand_parent: 📖 Archive
 nav_order: 1
 has_children: true
 has_toc: true

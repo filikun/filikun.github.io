@@ -1,7 +1,8 @@
 ---
 layout: default
 title: 🎨 Theme
-parent: 🍏 iOS theme
+parent: 🍏 iOS tema
+grand_parent: 📖 Archive
 nav_order: 2
 has_children: false
 has_toc: true
